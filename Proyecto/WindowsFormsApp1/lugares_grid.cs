@@ -16,5 +16,21 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Editar1 = false;
+                Lugares a = new Lugares();
+                a.StartPosition = FormStartPosition.CenterScreen;
+                a.MdiParent = this.ParentForm;
+                a.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

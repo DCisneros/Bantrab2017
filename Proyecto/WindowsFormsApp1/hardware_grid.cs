@@ -24,7 +24,18 @@ namespace WindowsFormsApp1
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+               // Editar1 = false;
+                hardware a = new hardware();
+                a.StartPosition = FormStartPosition.CenterScreen;
+                a.MdiParent = this.ParentForm;
+                a.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)

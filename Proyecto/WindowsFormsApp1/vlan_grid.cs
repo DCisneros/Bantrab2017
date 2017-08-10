@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class hardware : Form
+    public partial class vlan_grid : Form
     {
-        public hardware()
+        public vlan_grid()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_nuevo_Click(object sender, EventArgs e)
         {
             try
             {
                 // Editar1 = false;
-                Detalle_hardware a = new Detalle_hardware();
+                vlan a = new vlan();
                 a.StartPosition = FormStartPosition.CenterScreen;
                 a.MdiParent = this.ParentForm;
                 a.Show();

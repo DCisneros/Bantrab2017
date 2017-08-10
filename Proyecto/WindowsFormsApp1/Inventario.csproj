@@ -143,6 +143,18 @@
     <Compile Include="Tipo_Hardware.Designer.cs">
       <DependentUpon>Tipo_Hardware.cs</DependentUpon>
     </Compile>
+    <Compile Include="vlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vlan.Designer.cs">
+      <DependentUpon>vlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vlan_grid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vlan_grid.Designer.cs">
+      <DependentUpon>vlan_grid.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Datos_hardware.resx">
       <DependentUpon>Datos_hardware.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +211,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tipo_Hardware.resx">
       <DependentUpon>Tipo_Hardware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vlan.resx">
+      <DependentUpon>vlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vlan_grid.resx">
+      <DependentUpon>vlan_grid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
