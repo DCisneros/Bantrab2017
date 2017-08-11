@@ -31,8 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datos_hardware));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo_tipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_dato_hw = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -41,8 +43,7 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txt_id_tipo = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,10 +61,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox7);
+            this.groupBox1.Controls.Add(this.txt_id_tipo);
+            this.groupBox1.Controls.Add(this.cbo_tipo);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.treeView1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_dato_hw);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(27, 171);
@@ -73,6 +75,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // cbo_tipo
+            // 
+            this.cbo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_tipo.FormattingEnabled = true;
+            this.cbo_tipo.Location = new System.Drawing.Point(38, 62);
+            this.cbo_tipo.Name = "cbo_tipo";
+            this.cbo_tipo.Size = new System.Drawing.Size(267, 29);
+            this.cbo_tipo.TabIndex = 24;
+            this.cbo_tipo.SelectedIndexChanged += new System.EventHandler(this.cbo_tipo_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 21);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Tipo de hardware";
+            // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(345, 26);
@@ -80,12 +101,13 @@
             this.treeView1.Size = new System.Drawing.Size(338, 263);
             this.treeView1.TabIndex = 2;
             // 
-            // textBox1
+            // txt_dato_hw
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 143);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 27);
-            this.textBox1.TabIndex = 1;
+            this.txt_dato_hw.Location = new System.Drawing.Point(38, 143);
+            this.txt_dato_hw.Name = "txt_dato_hw";
+            this.txt_dato_hw.Size = new System.Drawing.Size(267, 27);
+            this.txt_dato_hw.TabIndex = 1;
+            this.txt_dato_hw.Tag = "nombre_dato";
             // 
             // label1
             // 
@@ -143,6 +165,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -205,23 +228,13 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // comboBox7
+            // txt_id_tipo
             // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(38, 62);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(267, 29);
-            this.comboBox7.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 21);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Tipo de hardware";
+            this.txt_id_tipo.Location = new System.Drawing.Point(311, 64);
+            this.txt_id_tipo.Name = "txt_id_tipo";
+            this.txt_id_tipo.Size = new System.Drawing.Size(10, 27);
+            this.txt_id_tipo.TabIndex = 25;
+            this.txt_id_tipo.Tag = "id_tipo_hw_pk";
             // 
             // Datos_hardware
             // 
@@ -256,10 +269,11 @@
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_dato_hw;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cbo_tipo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_id_tipo;
     }
 }
