@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tipo_Hardware));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_tipo_hw = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,7 +63,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_tipo_hw);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,12 +74,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
-            // textBox1
+            // txt_tipo_hw
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 27);
-            this.textBox1.TabIndex = 2;
+            this.txt_tipo_hw.Location = new System.Drawing.Point(38, 67);
+            this.txt_tipo_hw.Name = "txt_tipo_hw";
+            this.txt_tipo_hw.Size = new System.Drawing.Size(289, 27);
+            this.txt_tipo_hw.TabIndex = 2;
+            this.txt_tipo_hw.Tag = "nombre_tipo_hw";
             // 
             // label1
             // 
@@ -132,6 +133,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_ultimo
             // 
@@ -147,6 +149,7 @@
             this.btn_ultimo.Size = new System.Drawing.Size(33, 36);
             this.btn_ultimo.TabIndex = 10;
             this.btn_ultimo.UseVisualStyleBackColor = true;
+            this.btn_ultimo.Click += new System.EventHandler(this.btn_ultimo_Click);
             // 
             // btn_guardar
             // 
@@ -162,6 +165,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_primero
             // 
@@ -177,6 +181,7 @@
             this.btn_primero.Size = new System.Drawing.Size(33, 36);
             this.btn_primero.TabIndex = 9;
             this.btn_primero.UseVisualStyleBackColor = true;
+            this.btn_primero.Click += new System.EventHandler(this.btn_primero_Click);
             // 
             // btn_editar
             // 
@@ -192,6 +197,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_siguiente
             // 
@@ -207,6 +213,7 @@
             this.btn_siguiente.Size = new System.Drawing.Size(33, 36);
             this.btn_siguiente.TabIndex = 8;
             this.btn_siguiente.UseVisualStyleBackColor = true;
+            this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
             // 
             // btn_eliminar
             // 
@@ -222,6 +229,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(65, 69);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_anterior
             // 
@@ -238,6 +246,7 @@
             this.btn_anterior.TabIndex = 7;
             this.btn_anterior.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_anterior.UseVisualStyleBackColor = true;
+            this.btn_anterior.Click += new System.EventHandler(this.btn_anterior_Click);
             // 
             // btn_actualizar
             // 
@@ -253,6 +262,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -268,12 +278,14 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // Tipo_Hardware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(758, 486);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
@@ -281,6 +293,7 @@
             this.Name = "Tipo_Hardware";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipo_Hardware";
+            this.Load += new System.EventHandler(this.Tipo_Hardware_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -294,7 +307,7 @@
 
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_tipo_hw;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;

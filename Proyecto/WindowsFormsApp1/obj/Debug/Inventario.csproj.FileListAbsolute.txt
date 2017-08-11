@@ -24,3 +24,5 @@ C:\Users\Fredy_Cardona\documents\visual studio 2017\Projects\WindowsFormsApp1\Wi
 C:\Users\Fredy_Cardona\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Fredy_Cardona\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.vlan.resources
 C:\Users\Fredy_Cardona\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.vlan_grid.resources
+C:\Users\Fredy_Cardona\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\FuncionesNavegador.dll
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\seguridad.dll
