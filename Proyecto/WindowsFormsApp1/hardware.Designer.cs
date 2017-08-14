@@ -284,9 +284,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(646, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 58);
+            this.button1.Size = new System.Drawing.Size(124, 40);
             this.button1.TabIndex = 24;
-            this.button1.Text = "Agregar Detalle";
+            this.button1.Text = "Detalle";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

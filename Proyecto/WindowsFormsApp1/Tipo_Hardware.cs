@@ -57,6 +57,25 @@ namespace WindowsFormsApp1
             }
         }
 
+        OdbcConnection con = new OdbcConnection("dsn=inventario;server=localhost;database=inventario;uid=root;password=");
+        public void nivel()
+        {
+            DataTable dt = new DataTable();
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM tipo_hardware where estado <> 'INACTIVO'", con);
+            da.Fill(dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                TreeNode parent = new TreeNode(dr["nombre_tipo_hw"].ToString());
+                string value = dr["id_tipo_hw_pk"].ToString();
+                parent.Tag = dr["id_tipo_hw_pk"].ToString();
+                //MessageBox.Show(value);
+                parent.Expand();
+                treeView1.Nodes.Add(parent);
+                //sublevel(parent, value);
+            }
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             try
@@ -91,24 +110,84 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Ocurrio un error durante el proceso...", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-}
+        }
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        public void opciones_multiples()
+        {
+            int cont = 0;
+            foreach (TreeNode n in treeView1.Nodes)
+            {
+                
+                    if (n.Checked == true)
+                    {
+                        cont++;
+                        MessageBox.Show(Convert.ToString(cont));
+                    }
+
+                
+            }
+
+
+            validacion(cont);
+        }
+
+        public void validacion(int x)
+        {
+            //MessageBox.Show(Convert.ToString(contador));
+            if (x == 1)
+            {
+                edicion();
+
+            }
+            else if (x == 0)
+            {
+                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
+            }
+            else
+            {
+                MessageBox.Show("ERROR, SOLO SE PUEDE SELECCIONAR UN DATO PARA MODIFICAR");
+            }
+
+        }
+        public void edicion()
+        {
+            foreach (TreeNode n in treeView1.Nodes)
+            {
+                if (n.Checked == true)
+                {
+                    txt_id_copia.Text = n.Tag.ToString();
+                    txt_copia.Text = n.Text;
+                }
+                else
+                {
+
+                }
+                
+            }
+
+            modificar();
+        }
+
+        public void modificar()
         {
             try
             {
                 Editar = true;
                 fn.ActivarControles(groupBox1);
                 atributo = "id_tipo_hw_pk";
-                Codigo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                txt_tipo_hw.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                actualizar();
+                Codigo = txt_id_copia.Text;
+                txt_tipo_hw.Text = txt_copia.Text;
+                // actualizar();
 
             }
             catch
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a modificar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            opciones_multiples();
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)
@@ -120,18 +199,35 @@ namespace WindowsFormsApp1
         {
             try
             {
-                String codigo2 = dataGridView1.CurrentRow.Cells[0].Value.ToString(); ;
-                String atributo2 = "id_tipo_hw_pk";
                 var resultado = MessageBox.Show("DESEA BORRAR EL REGISTRO SELECCIONADO", "CONFIRME SU ACCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                 if (resultado == DialogResult.Yes)
                 {
 
-                    string tabla = "tipo_hardware";
-                    fn.eliminar(tabla, atributo2, codigo2);
-                    //MessageBox.Show("Se elimino el registro", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //bita.Eliminar("Eliminacion de empresa con el numero: " + codigo2, "empresa");
-                    actualizar();
+                    foreach (TreeNode n in treeView1.Nodes)
+                    {
+
+                        
+                            if (n.Checked == true)
+                            {
+                                string codigo_ac = n.Tag.ToString();
+                                String atributo2 = "id_tipo_hw_pk ";
+                                CapaNegocio fn = new CapaNegocio();
+                                string tabla = "tipo_hardware";
+                                fn.eliminar(tabla, atributo2, codigo_ac);
+                            }
+                            else
+                            {
+
+                            }
+                        
+                    }
+
                 }
+                treeView1.Nodes.Clear();
+                nivel();
+                //string tabla2 = "capacitacion";
+                //fn.ActualizarGrid(data, "SELECT DISTINCT  actividad, objetivo, recursos, fecha_inicio, fecha_fin, horario_inicio, horario_fin, id_ubicacion_pk, id_empresa_pk FROM capacitacion WHERE estado <>'INACTIVO' ", tabla2);
             }
             catch
             {
@@ -139,39 +235,12 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_anterior_Click(object sender, EventArgs e)
-        {
-            fn.Anterior(dataGridView1);
-            TextBox[] textbox = {txt_tipo_hw };
-            fn.llenartextbox(textbox, dataGridView1);
-        }
-
-        private void btn_siguiente_Click(object sender, EventArgs e)
-        {
-            fn.Siguiente(dataGridView1);
-            TextBox[] textbox = { txt_tipo_hw };
-            fn.llenartextbox(textbox, dataGridView1);
-        }
-
-        private void btn_primero_Click(object sender, EventArgs e)
-        {
-            fn.Primero(dataGridView1);
-            TextBox[] textbox = { txt_tipo_hw };
-            fn.llenartextbox(textbox, dataGridView1);
-        }
-
-        private void btn_ultimo_Click(object sender, EventArgs e)
-        {
-            fn.Ultimo(dataGridView1);
-            TextBox[] textbox = { txt_tipo_hw };
-            fn.llenartextbox(textbox, dataGridView1);
-        }
+        
 
         public void actualizar()
         {
-            string tabla = "tipo_hardware";
-            fn.ActualizarGrid(dataGridView1, "Select * from tipo_hardware where estado <> 'INACTIVO' ", tabla);
-            dataGridView1.Columns[2].Visible = false;
+            treeView1.Nodes.Clear();
+            nivel();
         }
     }
 }

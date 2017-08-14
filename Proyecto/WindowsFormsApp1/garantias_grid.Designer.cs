@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Proveedores_grid
+    partial class garantias_grid
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores_grid));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(garantias_grid));
+            this.lbl_form_emp = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_capacitacion = new System.Windows.Forms.DataGridView();
             this.gpb_navegador = new System.Windows.Forms.GroupBox();
             this.btn_ultimo = new System.Windows.Forms.Button();
             this.btn_primero = new System.Windows.Forms.Button();
@@ -38,33 +39,41 @@
             this.btn_anterior = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
-            this.lbl_form_emp = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_capacitacion)).BeginInit();
             this.gpb_navegador.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lbl_form_emp
+            // 
+            this.lbl_form_emp.AutoSize = true;
+            this.lbl_form_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_form_emp.Location = new System.Drawing.Point(235, 8);
+            this.lbl_form_emp.Name = "lbl_form_emp";
+            this.lbl_form_emp.Size = new System.Drawing.Size(278, 32);
+            this.lbl_form_emp.TabIndex = 191;
+            this.lbl_form_emp.Text = "Listado de Garantias";
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgv_capacitacion);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(29, 176);
+            this.groupBox1.Location = new System.Drawing.Point(28, 175);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(730, 311);
-            this.groupBox1.TabIndex = 187;
+            this.groupBox1.TabIndex = 190;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Proveedores";
+            this.groupBox1.Text = "Garantias";
             // 
-            // dataGridView1
+            // dgv_capacitacion
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(119, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(575, 253);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dgv_capacitacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_capacitacion.Location = new System.Drawing.Point(17, 22);
+            this.dgv_capacitacion.Name = "dgv_capacitacion";
+            this.dgv_capacitacion.Size = new System.Drawing.Size(690, 256);
+            this.dgv_capacitacion.TabIndex = 31;
             // 
             // gpb_navegador
             // 
@@ -76,10 +85,10 @@
             this.gpb_navegador.Controls.Add(this.btn_actualizar);
             this.gpb_navegador.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpb_navegador.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gpb_navegador.Location = new System.Drawing.Point(29, 62);
+            this.gpb_navegador.Location = new System.Drawing.Point(28, 61);
             this.gpb_navegador.Name = "gpb_navegador";
             this.gpb_navegador.Size = new System.Drawing.Size(258, 100);
-            this.gpb_navegador.TabIndex = 186;
+            this.gpb_navegador.TabIndex = 189;
             this.gpb_navegador.TabStop = false;
             this.gpb_navegador.Text = "Navegador";
             // 
@@ -174,32 +183,21 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 65);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
-            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
-            // lbl_form_emp
-            // 
-            this.lbl_form_emp.AutoSize = true;
-            this.lbl_form_emp.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_form_emp.Location = new System.Drawing.Point(236, 9);
-            this.lbl_form_emp.Name = "lbl_form_emp";
-            this.lbl_form_emp.Size = new System.Drawing.Size(283, 32);
-            this.lbl_form_emp.TabIndex = 188;
-            this.lbl_form_emp.Text = "Lista de Proveedores";
-            // 
-            // Proveedores_grid
+            // garantias_grid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(783, 495);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(786, 494);
             this.Controls.Add(this.lbl_form_emp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gpb_navegador);
-            this.Name = "Proveedores_grid";
+            this.Name = "garantias_grid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Proveedores_grid";
+            this.Text = "garantias_grid";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_capacitacion)).EndInit();
             this.gpb_navegador.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,15 +206,15 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox gpb_navegador;
-        private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Label lbl_form_emp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgv_capacitacion;
+        private System.Windows.Forms.GroupBox gpb_navegador;
         private System.Windows.Forms.Button btn_ultimo;
         private System.Windows.Forms.Button btn_primero;
         private System.Windows.Forms.Button btn_siguiente;
         private System.Windows.Forms.Button btn_anterior;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.Button btn_actualizar;
     }
 }

@@ -84,7 +84,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 228);
+            this.textBox1.Location = new System.Drawing.Point(12, 228);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(294, 87);
@@ -101,7 +101,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(11, 149);
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 148);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(305, 27);
             this.dateTimePicker1.TabIndex = 4;

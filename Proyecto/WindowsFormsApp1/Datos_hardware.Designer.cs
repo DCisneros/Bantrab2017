@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datos_hardware));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_id_tipo = new System.Windows.Forms.TextBox();
             this.cbo_tipo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -43,7 +44,8 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.txt_id_tipo = new System.Windows.Forms.TextBox();
+            this.txt_tree = new System.Windows.Forms.TextBox();
+            this.txt_copia = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_copia);
+            this.groupBox1.Controls.Add(this.txt_tree);
             this.groupBox1.Controls.Add(this.txt_id_tipo);
             this.groupBox1.Controls.Add(this.cbo_tipo);
             this.groupBox1.Controls.Add(this.label2);
@@ -74,6 +78,14 @@
             this.groupBox1.TabIndex = 61;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // txt_id_tipo
+            // 
+            this.txt_id_tipo.Location = new System.Drawing.Point(311, 64);
+            this.txt_id_tipo.Name = "txt_id_tipo";
+            this.txt_id_tipo.Size = new System.Drawing.Size(10, 27);
+            this.txt_id_tipo.TabIndex = 25;
+            this.txt_id_tipo.Tag = "id_tipo_hw_pk";
             // 
             // cbo_tipo
             // 
@@ -96,6 +108,7 @@
             // 
             // treeView1
             // 
+            this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(345, 26);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(338, 263);
@@ -181,6 +194,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_eliminar
             // 
@@ -196,6 +210,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(65, 69);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_actualizar
             // 
@@ -211,6 +226,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -228,13 +244,21 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // txt_id_tipo
+            // txt_tree
             // 
-            this.txt_id_tipo.Location = new System.Drawing.Point(311, 64);
-            this.txt_id_tipo.Name = "txt_id_tipo";
-            this.txt_id_tipo.Size = new System.Drawing.Size(10, 27);
-            this.txt_id_tipo.TabIndex = 25;
-            this.txt_id_tipo.Tag = "id_tipo_hw_pk";
+            this.txt_tree.Location = new System.Drawing.Point(169, 102);
+            this.txt_tree.Name = "txt_tree";
+            this.txt_tree.Size = new System.Drawing.Size(23, 27);
+            this.txt_tree.TabIndex = 26;
+            this.txt_tree.Tag = "id_tipo_hw_pk";
+            // 
+            // txt_copia
+            // 
+            this.txt_copia.Location = new System.Drawing.Point(208, 102);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(64, 27);
+            this.txt_copia.TabIndex = 27;
+            this.txt_copia.Tag = "nombre_dato";
             // 
             // Datos_hardware
             // 
@@ -275,5 +299,7 @@
         private System.Windows.Forms.ComboBox cbo_tipo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_id_tipo;
+        private System.Windows.Forms.TextBox txt_tree;
+        private System.Windows.Forms.TextBox txt_copia;
     }
 }

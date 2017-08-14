@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedor));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_email_prov = new System.Windows.Forms.TextBox();
+            this.txt_tel_prov = new System.Windows.Forms.TextBox();
+            this.txt_dir_prov = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_nit_prov = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_nom_prov = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@
             this.btn_anterior = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.txt_id_prov = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(284, 141);
+            this.txt_lbl.Location = new System.Drawing.Point(293, 9);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
             this.txt_lbl.Size = new System.Drawing.Size(169, 27);
@@ -69,15 +70,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txt_id_prov);
+            this.groupBox1.Controls.Add(this.txt_email_prov);
+            this.groupBox1.Controls.Add(this.txt_tel_prov);
+            this.groupBox1.Controls.Add(this.txt_dir_prov);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txt_nit_prov);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_nom_prov);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(27, 182);
@@ -87,26 +89,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
-            // textBox5
+            // txt_email_prov
             // 
-            this.textBox5.Location = new System.Drawing.Point(38, 248);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(267, 27);
-            this.textBox5.TabIndex = 10;
+            this.txt_email_prov.Location = new System.Drawing.Point(38, 248);
+            this.txt_email_prov.Name = "txt_email_prov";
+            this.txt_email_prov.Size = new System.Drawing.Size(267, 27);
+            this.txt_email_prov.TabIndex = 10;
+            this.txt_email_prov.Tag = "email";
             // 
-            // textBox4
+            // txt_tel_prov
             // 
-            this.textBox4.Location = new System.Drawing.Point(394, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(267, 27);
-            this.textBox4.TabIndex = 9;
+            this.txt_tel_prov.Location = new System.Drawing.Point(394, 155);
+            this.txt_tel_prov.Name = "txt_tel_prov";
+            this.txt_tel_prov.Size = new System.Drawing.Size(267, 27);
+            this.txt_tel_prov.TabIndex = 9;
+            this.txt_tel_prov.Tag = "telefono";
             // 
-            // textBox3
+            // txt_dir_prov
             // 
-            this.textBox3.Location = new System.Drawing.Point(38, 155);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(267, 27);
-            this.textBox3.TabIndex = 8;
+            this.txt_dir_prov.Location = new System.Drawing.Point(38, 155);
+            this.txt_dir_prov.Name = "txt_dir_prov";
+            this.txt_dir_prov.Size = new System.Drawing.Size(267, 27);
+            this.txt_dir_prov.TabIndex = 8;
+            this.txt_dir_prov.Tag = "direccion";
             // 
             // label5
             // 
@@ -135,12 +140,13 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Direccion";
             // 
-            // textBox2
+            // txt_nit_prov
             // 
-            this.textBox2.Location = new System.Drawing.Point(394, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 27);
-            this.textBox2.TabIndex = 4;
+            this.txt_nit_prov.Location = new System.Drawing.Point(394, 76);
+            this.txt_nit_prov.Name = "txt_nit_prov";
+            this.txt_nit_prov.Size = new System.Drawing.Size(267, 27);
+            this.txt_nit_prov.TabIndex = 4;
+            this.txt_nit_prov.Tag = "nit_prov";
             // 
             // label2
             // 
@@ -151,12 +157,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "NIT";
             // 
-            // textBox1
+            // txt_nom_prov
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 27);
-            this.textBox1.TabIndex = 2;
+            this.txt_nom_prov.Location = new System.Drawing.Point(38, 76);
+            this.txt_nom_prov.Name = "txt_nom_prov";
+            this.txt_nom_prov.Size = new System.Drawing.Size(267, 27);
+            this.txt_nom_prov.TabIndex = 2;
+            this.txt_nom_prov.Tag = "nombre_prov";
             // 
             // label1
             // 
@@ -180,7 +187,7 @@
             this.groupBox2.Controls.Add(this.btn_actualizar);
             this.groupBox2.Controls.Add(this.btn_cancelar);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(108, 23);
+            this.groupBox2.Location = new System.Drawing.Point(27, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(543, 106);
             this.groupBox2.TabIndex = 57;
@@ -201,6 +208,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_ultimo
             // 
@@ -231,6 +239,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_primero
             // 
@@ -261,6 +270,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_siguiente
             // 
@@ -307,6 +317,7 @@
             this.btn_anterior.TabIndex = 7;
             this.btn_anterior.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_anterior.UseVisualStyleBackColor = true;
+            this.btn_anterior.Click += new System.EventHandler(this.btn_anterior_Click);
             // 
             // btn_actualizar
             // 
@@ -337,12 +348,21 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // txt_id_prov
+            // 
+            this.txt_id_prov.Location = new System.Drawing.Point(230, 37);
+            this.txt_id_prov.Name = "txt_id_prov";
+            this.txt_id_prov.Size = new System.Drawing.Size(13, 27);
+            this.txt_id_prov.TabIndex = 11;
             // 
             // Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(757, 501);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
@@ -350,6 +370,7 @@
             this.Name = "Proveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedor";
+            this.Load += new System.EventHandler(this.Proveedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -362,7 +383,7 @@
 
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_nom_prov;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_nuevo;
@@ -375,13 +396,14 @@
         private System.Windows.Forms.Button btn_anterior;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_email_prov;
+        private System.Windows.Forms.TextBox txt_tel_prov;
+        private System.Windows.Forms.TextBox txt_dir_prov;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_nit_prov;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_id_prov;
     }
 }

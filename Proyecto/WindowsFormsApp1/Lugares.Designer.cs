@@ -58,7 +58,7 @@
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(282, 130);
+            this.txt_lbl.Location = new System.Drawing.Point(283, 18);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
             this.txt_lbl.Size = new System.Drawing.Size(219, 27);
@@ -85,7 +85,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(38, 227);
+            this.textBox4.Location = new System.Drawing.Point(38, 215);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(644, 50);
@@ -101,7 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 192);
+            this.label5.Location = new System.Drawing.Point(34, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 21);
             this.label5.TabIndex = 7;
@@ -118,15 +118,15 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(394, 76);
+            this.textBox2.Location = new System.Drawing.Point(384, 76);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(267, 27);
+            this.textBox2.Size = new System.Drawing.Size(277, 27);
             this.textBox2.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(390, 43);
+            this.label2.Location = new System.Drawing.Point(380, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 21);
             this.label2.TabIndex = 3;
@@ -144,9 +144,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 21);
+            this.label1.Size = new System.Drawing.Size(230, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre del lugar";
+            this.label1.Text = "Nombre del Establecimiento";
             // 
             // groupBox2
             // 
@@ -161,7 +161,7 @@
             this.groupBox2.Controls.Add(this.btn_actualizar);
             this.groupBox2.Controls.Add(this.btn_cancelar);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(106, 12);
+            this.groupBox2.Location = new System.Drawing.Point(25, 59);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(543, 106);
             this.groupBox2.TabIndex = 60;

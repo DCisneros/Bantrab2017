@@ -42,12 +42,12 @@
             this.interfazDeRedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.establecimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vLANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vLANToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,6 +168,13 @@
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
+            // vLANToolStripMenuItem
+            // 
+            this.vLANToolStripMenuItem.Name = "vLANToolStripMenuItem";
+            this.vLANToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
+            this.vLANToolStripMenuItem.Text = "VLAN";
+            this.vLANToolStripMenuItem.Click += new System.EventHandler(this.vLANToolStripMenuItem_Click);
+            // 
             // procesosToolStripMenuItem
             // 
             this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -203,13 +210,6 @@
             this.reporteDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.reporteDeInventarioToolStripMenuItem.Text = "Reporte de Inventario";
             // 
-            // vLANToolStripMenuItem
-            // 
-            this.vLANToolStripMenuItem.Name = "vLANToolStripMenuItem";
-            this.vLANToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
-            this.vLANToolStripMenuItem.Text = "VLAN";
-            this.vLANToolStripMenuItem.Click += new System.EventHandler(this.vLANToolStripMenuItem_Click);
-            // 
             // Mdi_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +222,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MDI_Inventario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Mdi_Inventario_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

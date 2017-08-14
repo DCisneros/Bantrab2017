@@ -125,6 +125,7 @@ namespace WindowsFormsApp1
             {
                 TreeNode child = new TreeNode(dr["nombre_dato"].ToString().Trim());
                 child.Tag = dr["id_dato_hw_pk"].ToString();
+                
                 string temp = dr["id_tipo_hw_pk"].ToString();
                 // string value = dr["id_area_pk"].ToString();
                 // MessageBox.Show(temp);
@@ -158,7 +159,7 @@ namespace WindowsFormsApp1
                     if (Editar)
                     {
                         fn.modificar(datos, tabla, atributo, Codigo);
-
+                        contador = 0;
 
                     }
                     else
@@ -182,6 +183,132 @@ namespace WindowsFormsApp1
         private void cbo_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             //nivel();
+        }
+        int contador = 0;
+        public void opciones_multiples()
+        {
+            int cont = 0;
+            foreach (TreeNode n in treeView1.Nodes)
+            {
+                foreach (TreeNode n_child in n.Nodes)
+                {         
+                    if (n_child.Checked == true)
+                    {
+                        cont++;
+                        MessageBox.Show(Convert.ToString(cont));
+                    }
+                    
+                }
+            }
+
+            
+            validacion(cont);
+        }
+        public void validacion(int x)
+        {
+            //MessageBox.Show(Convert.ToString(contador));
+            if (x == 1)
+            {
+                edicion();
+
+            } else if (x == 0)
+            {
+                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
+            }
+            else 
+            {
+                MessageBox.Show("ERROR, SOLO SE PUEDE SELECCIONAR UN DATO PARA MODIFICAR");
+            }
+
+        }
+        public void edicion()
+        {
+            foreach (TreeNode n in treeView1.Nodes)
+            {
+                foreach (TreeNode n_child in n.Nodes)
+                {
+                    if (n_child.Checked == true)
+                    {
+                        txt_tree.Text = n_child.Tag.ToString();
+                        txt_copia.Text = n_child.Text;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+
+            modificar();
+        }
+
+        public void modificar()
+        {
+            try
+            {
+                Editar = true;
+                fn.ActivarControles(groupBox1);
+                atributo = "id_dato_hw_pk";
+                Codigo = txt_tree.Text;
+                txt_dato_hw.Text = txt_copia.Text;
+               // actualizar();
+
+            }
+            catch
+            {
+                MessageBox.Show("No se ha seleccionado ningun registro a modificar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            opciones_multiples();
+
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var resultado = MessageBox.Show("DESEA BORRAR EL REGISTRO SELECCIONADO", "CONFIRME SU ACCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+
+                    foreach (TreeNode n in treeView1.Nodes)
+                    {
+                        
+                        foreach (TreeNode n_child in n.Nodes)
+                        {
+                            if (n_child.Checked == true)
+                            {
+                                string codigo_ac = n_child.Tag.ToString();
+                                String atributo2 = "id_dato_hw_pk ";
+                                CapaNegocio fn = new CapaNegocio();
+                                string tabla = "dato_hardware";
+                                fn.eliminar(tabla, atributo2, codigo_ac);
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+                    
+                }
+                treeView1.Nodes.Clear();
+                nivel();
+                //string tabla2 = "capacitacion";
+                //fn.ActualizarGrid(data, "SELECT DISTINCT  actividad, objetivo, recursos, fecha_inicio, fecha_fin, horario_inicio, horario_fin, id_ubicacion_pk, id_empresa_pk FROM capacitacion WHERE estado <>'INACTIVO' ", tabla2);
+            }
+            catch
+            {
+                MessageBox.Show("No se ha seleccionado ningun registro a eliminar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            nivel();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace WindowsFormsApp1
         Modelo mol;
         Proveedores_grid prov_grid;
         Interfaz_red int_red;
-        Garantias gar;
+        garantias_grid gar;
         vlan_grid v_lan;
 
 
@@ -30,6 +30,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void Mdi_Inventario_Load(object sender, EventArgs e)
+        {
+            
+        }
+        
 
         private void catalogoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -56,7 +62,7 @@ namespace WindowsFormsApp1
             if (dt_hw == null)
             {
                 dt_hw = new Datos_hardware();
-                dt_hw.MdiParent = this.MdiParent;
+                dt_hw.MdiParent = MdiParent;
                 dt_hw.FormClosed += new FormClosedEventHandler(dt_hw_FormClosed);
                 dt_hw.Show();
             }
@@ -130,7 +136,7 @@ namespace WindowsFormsApp1
         {
             if (gar == null)
             {
-                gar = new Garantias();
+                gar = new garantias_grid();
                 gar.MdiParent = this.MdiParent;
                 gar.FormClosed += new FormClosedEventHandler(gar_FormClosed);
                 gar.Show();
@@ -201,5 +207,7 @@ namespace WindowsFormsApp1
         {
             v_lan = null;
         }
+
+       
     }
 }
