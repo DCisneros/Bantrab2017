@@ -31,13 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Garantias));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_desc_gar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbo_hw = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_ultimo = new System.Windows.Forms.Button();
@@ -49,8 +48,11 @@
             this.btn_anterior = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.txt_fecha_compra = new System.Windows.Forms.TextBox();
+            this.txt_fecha_gar = new System.Windows.Forms.TextBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +60,7 @@
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(313, 130);
+            this.txt_lbl.Location = new System.Drawing.Point(347, 9);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
             this.txt_lbl.Size = new System.Drawing.Size(140, 27);
@@ -67,13 +69,16 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.txt_fecha_gar);
+            this.groupBox1.Controls.Add(this.txt_fecha_compra);
+            this.groupBox1.Controls.Add(this.txt_desc_gar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbo_hw);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(30, 160);
             this.groupBox1.Name = "groupBox1";
@@ -82,18 +87,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
-            // textBox1
+            // txt_desc_gar
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 228);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 87);
-            this.textBox1.TabIndex = 6;
+            this.txt_desc_gar.Location = new System.Drawing.Point(351, 174);
+            this.txt_desc_gar.Multiline = true;
+            this.txt_desc_gar.Name = "txt_desc_gar";
+            this.txt_desc_gar.Size = new System.Drawing.Size(351, 87);
+            this.txt_desc_gar.TabIndex = 6;
+            this.txt_desc_gar.Tag = "descripcion_garantia";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 204);
+            this.label3.Location = new System.Drawing.Point(346, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 21);
             this.label3.TabIndex = 5;
@@ -101,28 +107,29 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 148);
+            this.dateTimePicker1.Location = new System.Drawing.Point(23, 174);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(305, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(301, 27);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 115);
+            this.label2.Location = new System.Drawing.Point(7, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Fecha de la garantia";
             // 
-            // comboBox1
+            // cbo_hw
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 70);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(267, 29);
-            this.comboBox1.TabIndex = 2;
+            this.cbo_hw.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_hw.FormattingEnabled = true;
+            this.cbo_hw.Location = new System.Drawing.Point(39, 70);
+            this.cbo_hw.Name = "cbo_hw";
+            this.cbo_hw.Size = new System.Drawing.Size(267, 29);
+            this.cbo_hw.TabIndex = 2;
+            this.cbo_hw.SelectedIndexChanged += new System.EventHandler(this.cbo_hw_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -132,14 +139,6 @@
             this.label1.Size = new System.Drawing.Size(88, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hardware";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(322, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(384, 279);
-            this.dataGridView1.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -154,7 +153,7 @@
             this.groupBox2.Controls.Add(this.btn_actualizar);
             this.groupBox2.Controls.Add(this.btn_cancelar);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(112, 12);
+            this.groupBox2.Location = new System.Drawing.Point(36, 51);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(543, 106);
             this.groupBox2.TabIndex = 54;
@@ -175,6 +174,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_ultimo
             // 
@@ -205,6 +205,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_primero
             // 
@@ -311,6 +312,38 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // txt_fecha_compra
+            // 
+            this.txt_fecha_compra.Location = new System.Drawing.Point(622, 30);
+            this.txt_fecha_compra.Name = "txt_fecha_compra";
+            this.txt_fecha_compra.Size = new System.Drawing.Size(47, 27);
+            this.txt_fecha_compra.TabIndex = 7;
+            // 
+            // txt_fecha_gar
+            // 
+            this.txt_fecha_gar.Location = new System.Drawing.Point(188, 135);
+            this.txt_fecha_gar.Name = "txt_fecha_gar";
+            this.txt_fecha_gar.Size = new System.Drawing.Size(37, 27);
+            this.txt_fecha_gar.TabIndex = 8;
+            this.txt_fecha_gar.Tag = "fecha_garantia";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(376, 72);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(304, 27);
+            this.dateTimePicker2.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(347, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(269, 21);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Fecha de Compras del Hardware";
             // 
             // Garantias
             // 
@@ -324,9 +357,9 @@
             this.Name = "Garantias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Garantias";
+            this.Load += new System.EventHandler(this.Garantias_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -338,7 +371,6 @@
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.Button btn_ultimo;
@@ -350,10 +382,14 @@
         private System.Windows.Forms.Button btn_anterior;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_desc_gar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbo_hw;
+        private System.Windows.Forms.TextBox txt_fecha_compra;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox txt_fecha_gar;
     }
 }

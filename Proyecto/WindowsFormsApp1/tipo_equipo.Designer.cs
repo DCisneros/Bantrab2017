@@ -37,10 +37,12 @@
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.txt_tipo_eq = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_lbl = new System.Windows.Forms.Label();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.txt_id_copia = new System.Windows.Forms.TextBox();
+            this.txt_copia = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +77,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_guardar
             // 
@@ -90,6 +93,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -105,6 +109,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_eliminar
             // 
@@ -120,6 +125,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(65, 69);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_actualizar
             // 
@@ -135,6 +141,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -150,9 +157,12 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_copia);
+            this.groupBox1.Controls.Add(this.txt_id_copia);
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Controls.Add(this.txt_tipo_eq);
             this.groupBox1.Controls.Add(this.label1);
@@ -164,12 +174,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // treeView1
+            // 
+            this.treeView1.CheckBoxes = true;
+            this.treeView1.Location = new System.Drawing.Point(352, 26);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(331, 251);
+            this.treeView1.TabIndex = 3;
+            // 
             // txt_tipo_eq
             // 
             this.txt_tipo_eq.Location = new System.Drawing.Point(38, 74);
             this.txt_tipo_eq.Name = "txt_tipo_eq";
             this.txt_tipo_eq.Size = new System.Drawing.Size(283, 27);
             this.txt_tipo_eq.TabIndex = 2;
+            this.txt_tipo_eq.Tag = "nombre_tipo";
             // 
             // label1
             // 
@@ -191,18 +210,28 @@
             this.txt_lbl.TabIndex = 45;
             this.txt_lbl.Text = "TIPO DE EQUIPO";
             // 
-            // treeView1
+            // txt_id_copia
             // 
-            this.treeView1.Location = new System.Drawing.Point(352, 26);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(331, 251);
-            this.treeView1.TabIndex = 3;
+            this.txt_id_copia.Location = new System.Drawing.Point(35, 126);
+            this.txt_id_copia.Name = "txt_id_copia";
+            this.txt_id_copia.Size = new System.Drawing.Size(47, 27);
+            this.txt_id_copia.TabIndex = 4;
+            this.txt_id_copia.Tag = "id_tipo_equipo_pk";
+            // 
+            // txt_copia
+            // 
+            this.txt_copia.Location = new System.Drawing.Point(104, 126);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(120, 27);
+            this.txt_copia.TabIndex = 5;
+            this.txt_copia.Tag = "nombre_equipo";
             // 
             // tipo_equipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(766, 489);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
@@ -210,6 +239,7 @@
             this.Name = "tipo_equipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "tipo_equipo";
+            this.Load += new System.EventHandler(this.tipo_equipo_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -232,5 +262,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TextBox txt_copia;
+        private System.Windows.Forms.TextBox txt_id_copia;
     }
 }
