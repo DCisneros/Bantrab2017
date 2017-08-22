@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datos_hardware));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_copia = new System.Windows.Forms.TextBox();
+            this.txt_tree = new System.Windows.Forms.TextBox();
             this.txt_id_tipo = new System.Windows.Forms.TextBox();
             this.cbo_tipo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.txt_tree = new System.Windows.Forms.TextBox();
-            this.txt_copia = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // txt_copia
+            // 
+            this.txt_copia.Location = new System.Drawing.Point(208, 102);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(64, 27);
+            this.txt_copia.TabIndex = 27;
+            this.txt_copia.Tag = "nombre_dato";
+            // 
+            // txt_tree
+            // 
+            this.txt_tree.Location = new System.Drawing.Point(169, 102);
+            this.txt_tree.Name = "txt_tree";
+            this.txt_tree.Size = new System.Drawing.Size(23, 27);
+            this.txt_tree.TabIndex = 26;
+            this.txt_tree.Tag = "id_tipo_hw_pk";
+            // 
             // txt_id_tipo
             // 
             this.txt_id_tipo.Location = new System.Drawing.Point(311, 64);
@@ -102,9 +118,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 21);
+            this.label2.Size = new System.Drawing.Size(152, 21);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Tipo de hardware";
+            this.label2.Text = "Tipo de Inventario";
             // 
             // treeView1
             // 
@@ -243,22 +259,6 @@
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
-            // txt_tree
-            // 
-            this.txt_tree.Location = new System.Drawing.Point(169, 102);
-            this.txt_tree.Name = "txt_tree";
-            this.txt_tree.Size = new System.Drawing.Size(23, 27);
-            this.txt_tree.TabIndex = 26;
-            this.txt_tree.Tag = "id_tipo_hw_pk";
-            // 
-            // txt_copia
-            // 
-            this.txt_copia.Location = new System.Drawing.Point(208, 102);
-            this.txt_copia.Name = "txt_copia";
-            this.txt_copia.Size = new System.Drawing.Size(64, 27);
-            this.txt_copia.TabIndex = 27;
-            this.txt_copia.Tag = "nombre_dato";
             // 
             // Datos_hardware
             // 

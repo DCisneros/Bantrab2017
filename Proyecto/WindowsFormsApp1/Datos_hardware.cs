@@ -78,15 +78,15 @@ namespace WindowsFormsApp1
                 //se inicia un DataSet
                 DataSet ds = new DataSet();
                 //se indica la consulta en sql
-                String Query = "select id_tipo_hw_pk, nombre_tipo_hw from tipo_hardware Where estado <>'INACTIVO'";
+                String Query = "select id_clasi_inv_pk, nombre_clasi from clasificacion_inventario ";
                 OdbcDataAdapter dad = new OdbcDataAdapter(Query, Conexionmysql.ObtenerConexion());
                 //se indica con quu tabla se llena
-                dad.Fill(ds, "tipo-hardware");
+                dad.Fill(ds, "clasificacion_inventario");
                 cbo_tipo.DataSource = ds.Tables[0].DefaultView;
                 //indicamos el valor de los miembros
-                cbo_tipo.ValueMember = ("id_tipo_hw_pk");
+                cbo_tipo.ValueMember = ("id_clasi_inv_pk");
                 //se indica el valor a desplegar en el combobox
-                cbo_tipo.DisplayMember = ("nombre_tipo_hw");
+                cbo_tipo.DisplayMember = ("nombre_clasi");
                 Conexionmysql.Desconectar();
             }
             catch (Exception ex)
@@ -100,14 +100,14 @@ namespace WindowsFormsApp1
         public void nivel()
         {
             DataTable dt = new DataTable();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM tipo_hardware where estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM clasificacion_inventario ", con);
             da.Fill(dt);
 
             foreach (DataRow dr in dt.Rows)
             {
-                TreeNode parent = new TreeNode(dr["nombre_tipo_hw"].ToString());
-                string value = dr["id_tipo_hw_pk"].ToString();
-                parent.Tag = dr["id_tipo_hw_pk"].ToString();
+                TreeNode parent = new TreeNode(dr["nombre_clasi"].ToString());
+                string value = dr["id_clasi_inv_pk"].ToString();
+                parent.Tag = dr["id_clasi_inv_pk"].ToString();
                 //MessageBox.Show(value);
                 parent.Expand();
                 treeView1.Nodes.Add(parent);
@@ -119,14 +119,14 @@ namespace WindowsFormsApp1
         {
             DataTable dt = new DataTable();
             string selectedItem = cbo_tipo.SelectedValue.ToString();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM dato_hardware where id_tipo_hw_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM dato_hardware where id_clasi_inv_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
                 TreeNode child = new TreeNode(dr["nombre_dato"].ToString().Trim());
                 child.Tag = dr["id_dato_hw_pk"].ToString();
                 
-                string temp = dr["id_tipo_hw_pk"].ToString();
+                string temp = dr["id_clasi_inv_pk"].ToString();
                 // string value = dr["id_area_pk"].ToString();
                 // MessageBox.Show(temp);
                 child.Collapse();

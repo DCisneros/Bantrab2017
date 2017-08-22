@@ -12,13 +12,12 @@ using System.Data.Odbc;
 
 namespace WindowsFormsApp1
 {
-    public partial class Rol : Form
+    public partial class Gabinetes : Form
     {
-        public Rol()
+        public Gabinetes()
         {
             InitializeComponent();
         }
-
         FuncionesNavegador.CapaNegocio fn = new FuncionesNavegador.CapaNegocio();
         Boolean Editar = false;
         String Codigo;
@@ -32,6 +31,7 @@ namespace WindowsFormsApp1
                 fn.ActivarControles(groupBox1);
                 fn.LimpiarComponentes(groupBox1);
                 //dataGridView1.Rows.Clear();
+                treeView1.Enabled = true;
 
             }
             catch (Exception ex)
@@ -40,10 +40,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void Rol_Load(object sender, EventArgs e)
+        private void Gabinetes_Load(object sender, EventArgs e)
         {
             actualizar();
             fn.InhabilitarComponentes(groupBox1);
+            treeView1.Enabled = false;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -64,14 +65,14 @@ namespace WindowsFormsApp1
         public void nivel()
         {
             DataTable dt = new DataTable();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM rol where estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM gabinete where estado <> 'INACTIVO'", con);
             da.Fill(dt);
 
             foreach (DataRow dr in dt.Rows)
             {
-                TreeNode parent = new TreeNode(dr["nombre_rol"].ToString());
-                string value = dr["id_rol_pk"].ToString();
-                parent.Tag = dr["id_rol_pk"].ToString();
+                TreeNode parent = new TreeNode(dr["nombre_gabinete"].ToString());
+                string value = dr["id_gabinete_pk"].ToString();
+                parent.Tag = dr["id_gabinete_pk"].ToString();
                 //MessageBox.Show(value);
                 parent.Expand();
                 treeView1.Nodes.Add(parent);
@@ -85,7 +86,7 @@ namespace WindowsFormsApp1
             {
 
 
-                TextBox[] textbox = { txt_rol };
+                TextBox[] textbox = { txt_gabinete };
                 DataTable datos = fn.construirDataTable(textbox);
                 if (datos.Rows.Count == 0)
                 {
@@ -93,7 +94,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    string tabla = "rol";
+                    string tabla = "gabinete";
                     if (Editar)
                     {
                         fn.modificar(datos, tabla, atributo, Codigo);
@@ -117,7 +118,7 @@ namespace WindowsFormsApp1
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            opciones_multiples();   
+            opciones_multiples();
         }
 
         public void opciones_multiples()
@@ -182,9 +183,9 @@ namespace WindowsFormsApp1
             {
                 Editar = true;
                 fn.ActivarControles(groupBox1);
-                atributo = "id_rol_pk";
+                atributo = "id_gabinete_pk";
                 Codigo = txt_id_copia.Text;
-                txt_rol.Text = txt_copia.Text;
+                txt_gabinete.Text = txt_copia.Text;
                 // actualizar();
 
             }
@@ -192,16 +193,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a modificar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        public void actualizar()
-        {
-            treeView1.Nodes.Clear();
-            nivel();
-        }
-        private void btn_actualizar_Click(object sender, EventArgs e)
-        {
-            actualizar();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -220,9 +211,9 @@ namespace WindowsFormsApp1
                         if (n.Checked == true)
                         {
                             string codigo_ac = n.Tag.ToString();
-                            String atributo2 = "id_rol_pk ";
+                            String atributo2 = "id_gabinete_pk ";
                             CapaNegocio fn = new CapaNegocio();
-                            string tabla = "rol";
+                            string tabla = "gabinete";
                             fn.eliminar(tabla, atributo2, codigo_ac);
                         }
                         else
@@ -242,6 +233,17 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a eliminar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void actualizar()
+        {
+            treeView1.Nodes.Clear();
+            nivel();
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            actualizar();
         }
     }
 }

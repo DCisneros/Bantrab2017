@@ -1,16 +1,16 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Mdi_Inventario
+    partial class MDI_admin
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -43,6 +43,9 @@
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creacionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perfilesDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -56,11 +59,12 @@
             this.catalogoToolStripMenuItem,
             this.procesosToolStripMenuItem,
             this.reportesToolStripMenuItem,
+            this.seguridadToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(760, 28);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Size = new System.Drawing.Size(753, 28);
+            this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // inicioToolStripMenuItem
@@ -90,49 +94,42 @@
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
             this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
-            this.catalogoToolStripMenuItem.Click += new System.EventHandler(this.catalogoToolStripMenuItem_Click);
             // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
             this.marcasToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.marcasToolStripMenuItem.Text = "Marcas";
-            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
             // 
             // modelosToolStripMenuItem
             // 
             this.modelosToolStripMenuItem.Name = "modelosToolStripMenuItem";
             this.modelosToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.modelosToolStripMenuItem.Text = "Modelos";
-            this.modelosToolStripMenuItem.Click += new System.EventHandler(this.modelosToolStripMenuItem_Click);
             // 
             // clusterToolStripMenuItem
             // 
             this.clusterToolStripMenuItem.Name = "clusterToolStripMenuItem";
             this.clusterToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.clusterToolStripMenuItem.Text = "Cluster";
-            this.clusterToolStripMenuItem.Click += new System.EventHandler(this.clusterToolStripMenuItem_Click);
             // 
             // rolToolStripMenuItem
             // 
             this.rolToolStripMenuItem.Name = "rolToolStripMenuItem";
             this.rolToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.rolToolStripMenuItem.Text = "Rol";
-            this.rolToolStripMenuItem.Click += new System.EventHandler(this.rolToolStripMenuItem_Click);
             // 
             // tipoToolStripMenuItem
             // 
             this.tipoToolStripMenuItem.Name = "tipoToolStripMenuItem";
             this.tipoToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.tipoToolStripMenuItem.Text = "Tipo";
-            this.tipoToolStripMenuItem.Click += new System.EventHandler(this.tipoToolStripMenuItem_Click);
             // 
             // gabinetesToolStripMenuItem
             // 
             this.gabinetesToolStripMenuItem.Name = "gabinetesToolStripMenuItem";
             this.gabinetesToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.gabinetesToolStripMenuItem.Text = "Gabinetes";
-            this.gabinetesToolStripMenuItem.Click += new System.EventHandler(this.gabinetesToolStripMenuItem_Click);
             // 
             // procesosToolStripMenuItem
             // 
@@ -146,13 +143,13 @@
             // importarToolStripMenuItem
             // 
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.importarToolStripMenuItem.Text = "Importar";
             // 
             // exportarToolStripMenuItem
             // 
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
             this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // reportesToolStripMenuItem
@@ -169,6 +166,27 @@
             this.reporteDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.reporteDeInventarioToolStripMenuItem.Text = "Reporte de Inventario";
             // 
+            // seguridadToolStripMenuItem
+            // 
+            this.seguridadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.creacionDeUsuariosToolStripMenuItem,
+            this.perfilesDeUsuariosToolStripMenuItem});
+            this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
+            this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
+            this.seguridadToolStripMenuItem.Text = "Seguridad";
+            // 
+            // creacionDeUsuariosToolStripMenuItem
+            // 
+            this.creacionDeUsuariosToolStripMenuItem.Name = "creacionDeUsuariosToolStripMenuItem";
+            this.creacionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.creacionDeUsuariosToolStripMenuItem.Text = "Creacion de Usuarios";
+            // 
+            // perfilesDeUsuariosToolStripMenuItem
+            // 
+            this.perfilesDeUsuariosToolStripMenuItem.Name = "perfilesDeUsuariosToolStripMenuItem";
+            this.perfilesDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.perfilesDeUsuariosToolStripMenuItem.Text = "Perfiles de Usuarios";
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
@@ -181,19 +199,15 @@
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
-            // Mdi_Inventario
+            // MDI_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(760, 482);
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ClientSize = new System.Drawing.Size(753, 481);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Mdi_Inventario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MDI_Inventario";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Mdi_Inventario_Load);
+            this.Name = "MDI_admin";
+            this.Text = "MDI_admin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -205,21 +219,23 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem catalogoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem procesosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteDeInventarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem catalogoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modelosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clusterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gabinetesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem procesosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeInventarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seguridadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creacionDeUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem perfilesDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
     }
 }
-

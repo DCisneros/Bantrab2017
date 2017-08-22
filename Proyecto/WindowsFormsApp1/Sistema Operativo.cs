@@ -16,5 +16,25 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sistema_Operativo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

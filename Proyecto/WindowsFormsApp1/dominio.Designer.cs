@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class dominio
+    partial class Dominio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dominio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dominio));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -40,7 +41,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -49,11 +49,11 @@
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(315, 9);
+            this.txt_lbl.Location = new System.Drawing.Point(316, 9);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
             this.txt_lbl.Size = new System.Drawing.Size(116, 27);
-            this.txt_lbl.TabIndex = 56;
+            this.txt_lbl.TabIndex = 59;
             this.txt_lbl.Text = "Dominios";
             // 
             // groupBox1
@@ -62,12 +62,19 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 162);
+            this.groupBox1.Location = new System.Drawing.Point(13, 162);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(703, 295);
-            this.groupBox1.TabIndex = 58;
+            this.groupBox1.TabIndex = 61;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(385, 26);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(295, 249);
+            this.treeView1.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -94,10 +101,10 @@
             this.groupBox2.Controls.Add(this.btn_actualizar);
             this.groupBox2.Controls.Add(this.btn_cancelar);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 50);
+            this.groupBox2.Location = new System.Drawing.Point(13, 50);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(455, 106);
-            this.groupBox2.TabIndex = 57;
+            this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Navegador";
             // 
@@ -115,6 +122,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_guardar
             // 
@@ -130,6 +138,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -190,24 +199,19 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(385, 26);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(295, 249);
-            this.treeView1.TabIndex = 3;
-            // 
-            // dominio
+            // Dominio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 472);
+            this.ClientSize = new System.Drawing.Size(725, 459);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Name = "dominio";
-            this.Text = "dominio";
+            this.Name = "Dominio";
+            this.Text = "Dominio";
+            this.Load += new System.EventHandler(this.Dominio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -220,6 +224,7 @@
 
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -229,6 +234,5 @@
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.TreeView treeView1;
     }
 }

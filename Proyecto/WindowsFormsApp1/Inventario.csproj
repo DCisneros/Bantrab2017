@@ -52,24 +52,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cluster.cs">
+    <Compile Include="cluster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cluster.Designer.cs">
-      <DependentUpon>Cluster.cs</DependentUpon>
+    <Compile Include="cluster.Designer.cs">
+      <DependentUpon>cluster.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexionmysql.cs" />
-    <Compile Include="dominio.cs">
+    <Compile Include="Creacion Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dominio.Designer.cs">
-      <DependentUpon>dominio.cs</DependentUpon>
+    <Compile Include="Creacion Usuario.Designer.cs">
+      <DependentUpon>Creacion Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="gabinete.cs">
+    <Compile Include="Datos_hardware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gabinete.Designer.cs">
-      <DependentUpon>gabinete.cs</DependentUpon>
+    <Compile Include="Datos_hardware.Designer.cs">
+      <DependentUpon>Datos_hardware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle_hardware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle_hardware.Designer.cs">
+      <DependentUpon>Detalle_hardware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dominio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dominio.Designer.cs">
+      <DependentUpon>Dominio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gabinetes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gabinetes.Designer.cs">
+      <DependentUpon>Gabinetes.cs</DependentUpon>
     </Compile>
     <Compile Include="Garantias.cs">
       <SubType>Form</SubType>
@@ -83,11 +101,23 @@
     <Compile Include="garantias_grid.Designer.cs">
       <DependentUpon>garantias_grid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Localizacion Fisica.cs">
+    <Compile Include="Gestion de Redes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Localizacion Fisica.Designer.cs">
-      <DependentUpon>Localizacion Fisica.cs</DependentUpon>
+    <Compile Include="Gestion de Redes.Designer.cs">
+      <DependentUpon>Gestion de Redes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lugares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lugares.Designer.cs">
+      <DependentUpon>Lugares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_admin.Designer.cs">
+      <DependentUpon>MDI_admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Mdi_Inventario.cs">
       <SubType>Form</SubType>
@@ -107,13 +137,25 @@
     <Compile Include="Modelo.Designer.cs">
       <DependentUpon>Modelo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proveedor_Mantenimiento.cs">
+    <Compile Include="Perfiles Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Proveedor_Mantenimiento.Designer.cs">
-      <DependentUpon>Proveedor_Mantenimiento.cs</DependentUpon>
+    <Compile Include="Perfiles Usuario.Designer.cs">
+      <DependentUpon>Perfiles Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plataforma TI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plataforma TI.Designer.cs">
+      <DependentUpon>Plataforma TI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor de Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor de Mantenimiento.Designer.cs">
+      <DependentUpon>Proveedor de Mantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs">
       <SubType>Form</SubType>
@@ -121,29 +163,29 @@
     <Compile Include="Rol.Designer.cs">
       <DependentUpon>Rol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad Informatica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad Informatica.Designer.cs">
+      <DependentUpon>Seguridad Informatica.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema Operativo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sistema Operativo.Designer.cs">
       <DependentUpon>Sistema Operativo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tipo.cs">
+    <Compile Include="Tipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tipo.Designer.cs">
-      <DependentUpon>Tipo.cs</DependentUpon>
+    <Compile Include="Tipos.Designer.cs">
+      <DependentUpon>Tipos.cs</DependentUpon>
     </Compile>
     <Compile Include="tipo_equipo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tipo_equipo.Designer.cs">
       <DependentUpon>tipo_equipo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ubicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ubicacion.Designer.cs">
-      <DependentUpon>Ubicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="vlan.cs">
       <SubType>Form</SubType>
@@ -157,14 +199,23 @@
     <Compile Include="vlan_grid.Designer.cs">
       <DependentUpon>vlan_grid.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cluster.resx">
-      <DependentUpon>Cluster.cs</DependentUpon>
+    <EmbeddedResource Include="cluster.resx">
+      <DependentUpon>cluster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dominio.resx">
-      <DependentUpon>dominio.cs</DependentUpon>
+    <EmbeddedResource Include="Creacion Usuario.resx">
+      <DependentUpon>Creacion Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gabinete.resx">
-      <DependentUpon>gabinete.cs</DependentUpon>
+    <EmbeddedResource Include="Datos_hardware.resx">
+      <DependentUpon>Datos_hardware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalle_hardware.resx">
+      <DependentUpon>Detalle_hardware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dominio.resx">
+      <DependentUpon>Dominio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gabinetes.resx">
+      <DependentUpon>Gabinetes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Garantias.resx">
       <DependentUpon>Garantias.cs</DependentUpon>
@@ -172,8 +223,14 @@
     <EmbeddedResource Include="garantias_grid.resx">
       <DependentUpon>garantias_grid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Localizacion Fisica.resx">
-      <DependentUpon>Localizacion Fisica.cs</DependentUpon>
+    <EmbeddedResource Include="Gestion de Redes.resx">
+      <DependentUpon>Gestion de Redes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lugares.resx">
+      <DependentUpon>Lugares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_admin.resx">
+      <DependentUpon>MDI_admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mdi_Inventario.resx">
       <DependentUpon>Mdi_Inventario.cs</DependentUpon>
@@ -184,6 +241,12 @@
     <EmbeddedResource Include="Modelo.resx">
       <DependentUpon>Modelo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Perfiles Usuario.resx">
+      <DependentUpon>Perfiles Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plataforma TI.resx">
+      <DependentUpon>Plataforma TI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -193,23 +256,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Proveedor_Mantenimiento.resx">
-      <DependentUpon>Proveedor_Mantenimiento.cs</DependentUpon>
+    <EmbeddedResource Include="Proveedor de Mantenimiento.resx">
+      <DependentUpon>Proveedor de Mantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rol.resx">
       <DependentUpon>Rol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad Informatica.resx">
+      <DependentUpon>Seguridad Informatica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema Operativo.resx">
       <DependentUpon>Sistema Operativo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tipo.resx">
-      <DependentUpon>Tipo.cs</DependentUpon>
+    <EmbeddedResource Include="Tipos.resx">
+      <DependentUpon>Tipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tipo_equipo.resx">
       <DependentUpon>tipo_equipo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ubicacion.resx">
-      <DependentUpon>Ubicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vlan.resx">
       <DependentUpon>vlan.cs</DependentUpon>

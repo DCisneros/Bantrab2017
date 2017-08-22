@@ -12,13 +12,12 @@ using System.Data.Odbc;
 
 namespace WindowsFormsApp1
 {
-    public partial class Rol : Form
+    public partial class Tipos : Form
     {
-        public Rol()
+        public Tipos()
         {
             InitializeComponent();
         }
-
         FuncionesNavegador.CapaNegocio fn = new FuncionesNavegador.CapaNegocio();
         Boolean Editar = false;
         String Codigo;
@@ -31,6 +30,7 @@ namespace WindowsFormsApp1
                 Editar = false;
                 fn.ActivarControles(groupBox1);
                 fn.LimpiarComponentes(groupBox1);
+                treeView1.Enabled = true;
                 //dataGridView1.Rows.Clear();
 
             }
@@ -40,10 +40,13 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void Rol_Load(object sender, EventArgs e)
+        private void Tipos_Load(object sender, EventArgs e)
         {
-            actualizar();
             fn.InhabilitarComponentes(groupBox1);
+            llenartipo_hw();
+            treeView1.Enabled = false;
+            nivel();
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -60,22 +63,69 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void llenartipo_hw()
+        {
+            try
+            {
+                //se realiza la conexión a la base de datos
+                Conexionmysql.ObtenerConexion();
+                //se inicia un DataSet
+                DataSet ds = new DataSet();
+                //se indica la consulta en sql
+                String Query = "select id_clasi_inv_pk, nombre_clasi from clasificacion_inventario WHERE id_clasi_inv_pk <> 3";
+                OdbcDataAdapter dad = new OdbcDataAdapter(Query, Conexionmysql.ObtenerConexion());
+                //se indica con quu tabla se llena
+                dad.Fill(ds, "clasificacion_inventario");
+                cbo_inv.DataSource = ds.Tables[0].DefaultView;
+                //indicamos el valor de los miembros
+                cbo_inv.ValueMember = ("id_clasi_inv_pk");
+                //se indica el valor a desplegar en el combobox
+                cbo_inv.DisplayMember = ("nombre_clasi");
+                Conexionmysql.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         OdbcConnection con = new OdbcConnection("dsn=inventario;server=localhost;database=inventario;uid=root;password=");
         public void nivel()
         {
             DataTable dt = new DataTable();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM rol where estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM clasificacion_inventario WHERE id_clasi_inv_pk <> 3 ", con);
             da.Fill(dt);
 
             foreach (DataRow dr in dt.Rows)
             {
-                TreeNode parent = new TreeNode(dr["nombre_rol"].ToString());
-                string value = dr["id_rol_pk"].ToString();
-                parent.Tag = dr["id_rol_pk"].ToString();
+                TreeNode parent = new TreeNode(dr["nombre_clasi"].ToString());
+                string value = dr["id_clasi_inv_pk"].ToString();
+                parent.Tag = dr["id_clasi_inv_pk"].ToString();
                 //MessageBox.Show(value);
                 parent.Expand();
                 treeView1.Nodes.Add(parent);
-                //sublevel(parent, value);
+                sublevel(parent, value);
+            }
+        }
+
+        public void sublevel(TreeNode parent, string value)
+        {
+            DataTable dt = new DataTable();
+            string selectedItem = cbo_inv.SelectedValue.ToString();
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM tipo where id_tipo_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                TreeNode child = new TreeNode(dr["nombre_tipo"].ToString().Trim());
+                child.Tag = dr["id_tipo_pk"].ToString();
+                
+                string temp = dr["id_clasi_inv_pk"].ToString();
+                // string value = dr["id_area_pk"].ToString();
+                // MessageBox.Show(temp);
+                child.Collapse();
+                parent.Nodes.Add(child);
+                // sublevel(child, temp);
+
             }
         }
 
@@ -83,9 +133,10 @@ namespace WindowsFormsApp1
         {
             try
             {
+                string selectedItem = cbo_inv.SelectedValue.ToString();
+                txt_id_tipo.Text = selectedItem;
 
-
-                TextBox[] textbox = { txt_rol };
+                TextBox[] textbox = { txt_tipo, txt_id_tipo };
                 DataTable datos = fn.construirDataTable(textbox);
                 if (datos.Rows.Count == 0)
                 {
@@ -93,11 +144,11 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    string tabla = "rol";
+                    string tabla = "tipo";
                     if (Editar)
                     {
                         fn.modificar(datos, tabla, atributo, Codigo);
-
+                        contador = 0;
 
                     }
                     else
@@ -106,8 +157,11 @@ namespace WindowsFormsApp1
 
                     }
                     fn.LimpiarComponentes(groupBox1);
+                    treeView1.Nodes.Clear();
+                    nivel();
+
                 }
-                actualizar();
+                // actualizar();
             }
             catch
             {
@@ -115,30 +169,26 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-            opciones_multiples();   
-        }
-
+        int contador = 0;
         public void opciones_multiples()
         {
             int cont = 0;
             foreach (TreeNode n in treeView1.Nodes)
             {
-
-                if (n.Checked == true)
+                foreach (TreeNode n_child in n.Nodes)
                 {
-                    cont++;
-                    //MessageBox.Show(Convert.ToString(cont));
+                    if (n_child.Checked == true)
+                    {
+                        cont++;
+                        //MessageBox.Show(Convert.ToString(cont));
+                    }
+
                 }
-
-
             }
 
 
             validacion(cont);
         }
-
         public void validacion(int x)
         {
             //MessageBox.Show(Convert.ToString(contador));
@@ -149,7 +199,7 @@ namespace WindowsFormsApp1
             }
             else if (x == 0)
             {
-                MessageBox.Show("NO HAY DATO SELECCIONADO");
+                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
             }
             else
             {
@@ -161,16 +211,18 @@ namespace WindowsFormsApp1
         {
             foreach (TreeNode n in treeView1.Nodes)
             {
-                if (n.Checked == true)
+                foreach (TreeNode n_child in n.Nodes)
                 {
-                    txt_id_copia.Text = n.Tag.ToString();
-                    txt_copia.Text = n.Text;
-                }
-                else
-                {
+                    if (n_child.Checked == true)
+                    {
+                        txt_tree.Text = n_child.Tag.ToString();
+                        txt_copia.Text = n_child.Text;
+                    }
+                    else
+                    {
 
+                    }
                 }
-
             }
 
             modificar();
@@ -182,9 +234,9 @@ namespace WindowsFormsApp1
             {
                 Editar = true;
                 fn.ActivarControles(groupBox1);
-                atributo = "id_rol_pk";
-                Codigo = txt_id_copia.Text;
-                txt_rol.Text = txt_copia.Text;
+                atributo = "id_tipo_pk";
+                Codigo = txt_tree.Text;
+                txt_tipo.Text = txt_copia.Text;
                 // actualizar();
 
             }
@@ -194,14 +246,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void actualizar()
+        private void btn_editar_Click(object sender, EventArgs e)
         {
-            treeView1.Nodes.Clear();
-            nivel();
-        }
-        private void btn_actualizar_Click(object sender, EventArgs e)
-        {
-            actualizar();
+            opciones_multiples();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -216,20 +263,21 @@ namespace WindowsFormsApp1
                     foreach (TreeNode n in treeView1.Nodes)
                     {
 
-
-                        if (n.Checked == true)
+                        foreach (TreeNode n_child in n.Nodes)
                         {
-                            string codigo_ac = n.Tag.ToString();
-                            String atributo2 = "id_rol_pk ";
-                            CapaNegocio fn = new CapaNegocio();
-                            string tabla = "rol";
-                            fn.eliminar(tabla, atributo2, codigo_ac);
-                        }
-                        else
-                        {
+                            if (n_child.Checked == true)
+                            {
+                                string codigo_ac = n_child.Tag.ToString();
+                                String atributo2 = "id_tipo_pk ";
+                                CapaNegocio fn = new CapaNegocio();
+                                string tabla = "tipo";
+                                fn.eliminar(tabla, atributo2, codigo_ac);
+                            }
+                            else
+                            {
 
+                            }
                         }
-
                     }
 
                 }
@@ -242,6 +290,12 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a eliminar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Clear();
+            nivel();
         }
     }
 }
