@@ -157,6 +157,12 @@
     <Compile Include="Proveedor de Mantenimiento.Designer.cs">
       <DependentUpon>Proveedor de Mantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Redes y Telecomunicaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Redes y Telecomunicaciones.Designer.cs">
+      <DependentUpon>Redes y Telecomunicaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,9 @@
     </Compile>
     <EmbeddedResource Include="Proveedor de Mantenimiento.resx">
       <DependentUpon>Proveedor de Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Redes y Telecomunicaciones.resx">
+      <DependentUpon>Redes y Telecomunicaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rol.resx">
       <DependentUpon>Rol.cs</DependentUpon>

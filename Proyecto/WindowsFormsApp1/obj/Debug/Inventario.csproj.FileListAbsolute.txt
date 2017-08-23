@@ -56,3 +56,7 @@ C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\obj\D
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Creacion_Usuario.resources
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MDI_admin.resources
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Perfiles_Usuario.resources
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Redes_y_Telecomunicaciones.resources

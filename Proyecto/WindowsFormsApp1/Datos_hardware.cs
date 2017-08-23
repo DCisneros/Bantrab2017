@@ -38,15 +38,7 @@ namespace WindowsFormsApp1
                 fn.ActivarControles(groupBox1);
                 fn.LimpiarComponentes(groupBox1);
                 treeView1.Enabled = true;
-                foreach (TreeNode n in treeView1.Nodes)
-                {
-                    n.Checked = false;
-
-                    foreach (TreeNode n_child in n.Nodes)
-                    {
-                        n_child.Checked = false;
-                    }
-                }
+                //dataGridView1.Rows.Clear();
 
             }
             catch (Exception ex)
@@ -62,6 +54,7 @@ namespace WindowsFormsApp1
                 Editar = false;
                 fn.LimpiarComponentes(groupBox1);
                 fn.InhabilitarComponentes(groupBox1);
+                treeView1.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -119,7 +112,7 @@ namespace WindowsFormsApp1
         {
             DataTable dt = new DataTable();
             string selectedItem = cbo_tipo.SelectedValue.ToString();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM dato_hardware where id_clasi_inv_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM dato_general where id_clasi_inv_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
@@ -155,11 +148,11 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    string tabla = "dato_hardware";
+                    string tabla = "dato_general";
                     if (Editar)
                     {
                         fn.modificar(datos, tabla, atributo, Codigo);
-                        contador = 0;
+                        
 
                     }
                     else
@@ -184,7 +177,7 @@ namespace WindowsFormsApp1
         {
             //nivel();
         }
-        int contador = 0;
+       
         public void opciones_multiples()
         {
             int cont = 0;
@@ -231,6 +224,7 @@ namespace WindowsFormsApp1
                     {
                         txt_tree.Text = n_child.Tag.ToString();
                         txt_copia.Text = n_child.Text;
+                        cbo_tipo.Text = n.Text;
                     }
                     else
                     {
@@ -284,7 +278,7 @@ namespace WindowsFormsApp1
                                 string codigo_ac = n_child.Tag.ToString();
                                 String atributo2 = "id_dato_hw_pk ";
                                 CapaNegocio fn = new CapaNegocio();
-                                string tabla = "dato_hardware";
+                                string tabla = "dato_general";
                                 fn.eliminar(tabla, atributo2, codigo_ac);
                             }
                             else
@@ -308,6 +302,7 @@ namespace WindowsFormsApp1
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
+            treeView1.Nodes.Clear();
             nivel();
         }
     }

@@ -23,6 +23,10 @@ namespace WindowsFormsApp1
         Tipos tp;
         Gabinetes gb;
         Rol rl;
+        Lugares lg;
+        Gestion_de_Redes gr;
+        Proveedor_de_Mantenimiento pm;
+        tipo_equipo tq;
 
 
         public Mdi_Inventario()
@@ -44,18 +48,9 @@ namespace WindowsFormsApp1
        
         private void datosDelHardwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dt_hw == null)
-            {
-                dt_hw = new Datos_hardware();
-                dt_hw.MdiParent = MdiParent;
-                dt_hw.FormClosed += new FormClosedEventHandler(dt_hw_FormClosed);
-                dt_hw.Show();
-            }
+           
         }
-        void dt_hw_FormClosed(object sender, EventArgs e)
-        {
-            dt_hw = null;
-        }
+       
 
         private void tipoDeEquipoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -119,10 +114,6 @@ namespace WindowsFormsApp1
         {
             gar = null;
         }
-
-        
-
-        
 
         private void vLANToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -201,6 +192,84 @@ namespace WindowsFormsApp1
         void gabinete_FormClosed(object sender, EventArgs e)
         {
             gb = null;
+        }
+
+        private void ubicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lg == null)
+            {
+                lg = new Lugares();
+                lg.MdiParent = this.MdiParent;
+                lg.FormClosed += new FormClosedEventHandler(lugares_FormClosed);
+                lg.Show();
+            }
+        }
+
+        void lugares_FormClosed(object sender, EventArgs e)
+        {
+            lg = null;
+        }
+
+        private void datoDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dt_hw == null)
+            {
+                dt_hw = new Datos_hardware();
+                dt_hw.MdiParent = MdiParent;
+                dt_hw.FormClosed += new FormClosedEventHandler(dt_hw_FormClosed);
+                dt_hw.Show();
+            }
+        }
+
+        void dt_hw_FormClosed(object sender, EventArgs e)
+        {
+            dt_hw = null;
+        }
+
+        private void gestionDeRedesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (gr == null)
+            {
+                gr = new Gestion_de_Redes();
+                gr.MdiParent = MdiParent;
+                gr.FormClosed += new FormClosedEventHandler(gestion_redes_FormClosed);
+                gr.Show();
+            }
+        }
+        void gestion_redes_FormClosed(object sender, EventArgs e)
+        {
+            gr = null;
+        }
+
+        private void proveedorDeMantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pm == null)
+            {
+                pm = new Proveedor_de_Mantenimiento();
+                pm.MdiParent = MdiParent;
+                pm.FormClosed += new FormClosedEventHandler(prov_mante_FormClosed);
+                pm.Show();
+            }
+        }
+        void prov_mante_FormClosed(object sender, EventArgs e)
+        {
+            pm = null;
+        }
+
+        private void tipoDeEquipoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (tq == null)
+            {
+                tq = new tipo_equipo();
+                tq.MdiParent = MdiParent;
+                tq.FormClosed += new FormClosedEventHandler(tipo_equipo_FormClosed);
+                tq.Show();
+            }
+        }
+
+        void tipo_equipo_FormClosed(object sender, EventArgs e)
+        {
+            tq = null;
         }
     }
 }

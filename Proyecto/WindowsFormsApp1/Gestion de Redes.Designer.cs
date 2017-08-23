@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestion_de_Redes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo_mant = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbo_fecha = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -37,11 +42,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbo_ubi = new System.Windows.Forms.ComboBox();
+            this.cbo_tipo_eq = new System.Windows.Forms.ComboBox();
+            this.cbo_modelo = new System.Windows.Forms.ComboBox();
+            this.cbo_prov_man = new System.Windows.Forms.ComboBox();
+            this.cbo_marca = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -51,11 +56,10 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_id_hw = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -63,9 +67,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.txt_id_hw);
+            this.groupBox1.Controls.Add(this.cbo_mant);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbo_fecha);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
@@ -75,19 +80,72 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox9);
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.comboBox6);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbo_ubi);
+            this.groupBox1.Controls.Add(this.cbo_tipo_eq);
+            this.groupBox1.Controls.Add(this.cbo_modelo);
+            this.groupBox1.Controls.Add(this.cbo_prov_man);
+            this.groupBox1.Controls.Add(this.cbo_marca);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 160);
+            this.groupBox1.Location = new System.Drawing.Point(12, 151);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(876, 526);
+            this.groupBox1.Size = new System.Drawing.Size(876, 524);
             this.groupBox1.TabIndex = 54;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cbo_mant
+            // 
+            this.cbo_mant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_mant.FormattingEnabled = true;
+            this.cbo_mant.Items.AddRange(new object[] {
+            "Proveedor",
+            "N/A"});
+            this.cbo_mant.Location = new System.Drawing.Point(660, 363);
+            this.cbo_mant.Name = "cbo_mant";
+            this.cbo_mant.Size = new System.Drawing.Size(112, 29);
+            this.cbo_mant.TabIndex = 27;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(391, 371);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(243, 21);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Mantenimiento Realizado Por:";
+            // 
+            // cbo_fecha
+            // 
+            this.cbo_fecha.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_fecha.FormattingEnabled = true;
+            this.cbo_fecha.Items.AddRange(new object[] {
+            "No Aplica",
+            "Aplica",
+            "N/A",
+            "Sin garantia"});
+            this.cbo_fecha.Location = new System.Drawing.Point(299, 485);
+            this.cbo_fecha.Name = "cbo_fecha";
+            this.cbo_fecha.Size = new System.Drawing.Size(121, 29);
+            this.cbo_fecha.TabIndex = 25;
+            this.cbo_fecha.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(226, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 21);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Hostname:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(331, 39);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(245, 27);
+            this.textBox1.TabIndex = 23;
             // 
             // label3
             // 
@@ -150,57 +208,61 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Marca";
             // 
-            // comboBox9
+            // cbo_ubi
             // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(174, 368);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(190, 29);
-            this.comboBox9.TabIndex = 10;
+            this.cbo_ubi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_ubi.FormattingEnabled = true;
+            this.cbo_ubi.Location = new System.Drawing.Point(174, 368);
+            this.cbo_ubi.Name = "cbo_ubi";
+            this.cbo_ubi.Size = new System.Drawing.Size(190, 29);
+            this.cbo_ubi.TabIndex = 10;
             // 
-            // comboBox5
+            // cbo_tipo_eq
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(639, 427);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(190, 29);
-            this.comboBox5.TabIndex = 5;
+            this.cbo_tipo_eq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_tipo_eq.FormattingEnabled = true;
+            this.cbo_tipo_eq.Location = new System.Drawing.Point(638, 427);
+            this.cbo_tipo_eq.Name = "cbo_tipo_eq";
+            this.cbo_tipo_eq.Size = new System.Drawing.Size(190, 29);
+            this.cbo_tipo_eq.TabIndex = 5;
             // 
-            // comboBox6
+            // cbo_modelo
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(582, 313);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(190, 29);
-            this.comboBox6.TabIndex = 4;
+            this.cbo_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_modelo.FormattingEnabled = true;
+            this.cbo_modelo.Location = new System.Drawing.Point(582, 313);
+            this.cbo_modelo.Name = "cbo_modelo";
+            this.cbo_modelo.Size = new System.Drawing.Size(190, 29);
+            this.cbo_modelo.TabIndex = 4;
             // 
-            // comboBox3
+            // cbo_prov_man
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(283, 432);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(190, 29);
-            this.comboBox3.TabIndex = 3;
+            this.cbo_prov_man.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_prov_man.FormattingEnabled = true;
+            this.cbo_prov_man.Location = new System.Drawing.Point(283, 427);
+            this.cbo_prov_man.Name = "cbo_prov_man";
+            this.cbo_prov_man.Size = new System.Drawing.Size(190, 29);
+            this.cbo_prov_man.TabIndex = 3;
             // 
-            // comboBox1
+            // cbo_marca
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(174, 313);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(190, 29);
-            this.comboBox1.TabIndex = 1;
+            this.cbo_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_marca.FormattingEnabled = true;
+            this.cbo_marca.Location = new System.Drawing.Point(174, 313);
+            this.cbo_marca.Name = "cbo_marca";
+            this.cbo_marca.Size = new System.Drawing.Size(190, 29);
+            this.cbo_marca.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 83);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_dato,
+            this.datosq,
+            this.descr});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 84);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(835, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(841, 213);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -224,7 +286,7 @@
             this.groupBox2.Controls.Add(this.btn_actualizar);
             this.groupBox2.Controls.Add(this.btn_cancelar);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 48);
+            this.groupBox2.Location = new System.Drawing.Point(12, 39);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(456, 106);
             this.groupBox2.TabIndex = 52;
@@ -245,6 +307,7 @@
             this.btn_nuevo.Size = new System.Drawing.Size(65, 69);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_guardar
             // 
@@ -260,6 +323,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -320,66 +384,48 @@
             this.btn_cancelar.Size = new System.Drawing.Size(65, 69);
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // textBox1
+            // id_dato
             // 
-            this.textBox1.Location = new System.Drawing.Point(331, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 27);
-            this.textBox1.TabIndex = 23;
+            this.id_dato.HeaderText = "ID_DATO";
+            this.id_dato.Name = "id_dato";
+            this.id_dato.Visible = false;
             // 
-            // label6
+            // datosq
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(226, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 21);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Hostname:";
+            this.datosq.HeaderText = "DATOS ESPECIFICOS";
+            this.datosq.Name = "datosq";
+            this.datosq.Width = 300;
             // 
-            // comboBox2
+            // descr
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Aplica",
-            "No Aplica",
-            "N/A",
-            "Sin garantia"});
-            this.comboBox2.Location = new System.Drawing.Point(299, 485);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 29);
-            this.comboBox2.TabIndex = 25;
+            this.descr.HeaderText = "DESCRIPCION";
+            this.descr.Name = "descr";
+            this.descr.Width = 498;
             // 
-            // label7
+            // txt_id_hw
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(391, 371);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(243, 21);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Mantenimiento Realizado Por:";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Proveedor",
-            "N/A"});
-            this.comboBox4.Location = new System.Drawing.Point(660, 363);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(59, 29);
-            this.comboBox4.TabIndex = 27;
+            this.txt_id_hw.Location = new System.Drawing.Point(591, 39);
+            this.txt_id_hw.Name = "txt_id_hw";
+            this.txt_id_hw.Size = new System.Drawing.Size(43, 27);
+            this.txt_id_hw.TabIndex = 28;
             // 
             // Gestion_de_Redes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 698);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(893, 677);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox2);
+            this.MaximizeBox = false;
             this.Name = "Gestion_de_Redes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion_de_Redes";
+            this.Load += new System.EventHandler(this.Gestion_de_Redes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -399,11 +445,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbo_ubi;
+        private System.Windows.Forms.ComboBox cbo_tipo_eq;
+        private System.Windows.Forms.ComboBox cbo_modelo;
+        private System.Windows.Forms.ComboBox cbo_prov_man;
+        private System.Windows.Forms.ComboBox cbo_marca;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label txt_lbl;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -413,10 +459,14 @@
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_actualizar;
         private System.Windows.Forms.Button btn_cancelar;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbo_mant;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbo_fecha;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_dato;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datosq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descr;
+        private System.Windows.Forms.TextBox txt_id_hw;
     }
 }

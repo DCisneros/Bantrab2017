@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lugares));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.txt_nivel = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_nom_lugar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
@@ -38,11 +43,8 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_nom_lugar = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_nivel = new System.Windows.Forms.TextBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.txt_copia = new System.Windows.Forms.TextBox();
+            this.txt_id_copia = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +53,7 @@
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(307, 20);
+            this.txt_lbl.Location = new System.Drawing.Point(307, 9);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
             this.txt_lbl.Size = new System.Drawing.Size(153, 27);
@@ -60,6 +62,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_copia);
+            this.groupBox1.Controls.Add(this.txt_id_copia);
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Controls.Add(this.txt_nivel);
             this.groupBox1.Controls.Add(this.label2);
@@ -72,6 +76,48 @@
             this.groupBox1.TabIndex = 61;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // treeView1
+            // 
+            this.treeView1.CheckBoxes = true;
+            this.treeView1.Location = new System.Drawing.Point(370, 26);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(309, 245);
+            this.treeView1.TabIndex = 5;
+            // 
+            // txt_nivel
+            // 
+            this.txt_nivel.Location = new System.Drawing.Point(38, 149);
+            this.txt_nivel.Name = "txt_nivel";
+            this.txt_nivel.Size = new System.Drawing.Size(267, 27);
+            this.txt_nivel.TabIndex = 4;
+            this.txt_nivel.Tag = "detalle";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 116);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Detalle:";
+            // 
+            // txt_nom_lugar
+            // 
+            this.txt_nom_lugar.Location = new System.Drawing.Point(38, 76);
+            this.txt_nom_lugar.Name = "txt_nom_lugar";
+            this.txt_nom_lugar.Size = new System.Drawing.Size(267, 27);
+            this.txt_nom_lugar.TabIndex = 2;
+            this.txt_nom_lugar.Tag = "nombre";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre de la ubicacion";
             // 
             // groupBox2
             // 
@@ -119,6 +165,7 @@
             this.btn_guardar.Size = new System.Drawing.Size(65, 69);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_editar
             // 
@@ -134,6 +181,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_eliminar
             // 
@@ -149,6 +197,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(65, 69);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_actualizar
             // 
@@ -164,6 +213,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -181,53 +231,27 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // label1
+            // txt_copia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre de la ubicacion";
+            this.txt_copia.Location = new System.Drawing.Point(109, 182);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(100, 27);
+            this.txt_copia.TabIndex = 14;
             // 
-            // txt_nom_lugar
+            // txt_id_copia
             // 
-            this.txt_nom_lugar.Location = new System.Drawing.Point(38, 76);
-            this.txt_nom_lugar.Name = "txt_nom_lugar";
-            this.txt_nom_lugar.Size = new System.Drawing.Size(267, 27);
-            this.txt_nom_lugar.TabIndex = 2;
-            this.txt_nom_lugar.Tag = "nombre_lugar";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 116);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Nivel";
-            // 
-            // txt_nivel
-            // 
-            this.txt_nivel.Location = new System.Drawing.Point(38, 149);
-            this.txt_nivel.Name = "txt_nivel";
-            this.txt_nivel.Size = new System.Drawing.Size(267, 27);
-            this.txt_nivel.TabIndex = 4;
-            this.txt_nivel.Tag = "nivel";
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(370, 26);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(309, 245);
-            this.treeView1.TabIndex = 5;
+            this.txt_id_copia.Location = new System.Drawing.Point(41, 182);
+            this.txt_id_copia.Name = "txt_id_copia";
+            this.txt_id_copia.Size = new System.Drawing.Size(29, 27);
+            this.txt_id_copia.TabIndex = 13;
             // 
             // Lugares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(756, 481);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(747, 481);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -259,5 +283,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_nom_lugar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_copia;
+        private System.Windows.Forms.TextBox txt_id_copia;
     }
 }

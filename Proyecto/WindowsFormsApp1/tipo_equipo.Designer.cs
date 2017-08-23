@@ -37,12 +37,12 @@
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_copia = new System.Windows.Forms.TextBox();
+            this.txt_id_copia = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.txt_tipo_eq = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_lbl = new System.Windows.Forms.Label();
-            this.txt_id_copia = new System.Windows.Forms.TextBox();
-            this.txt_copia = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +174,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
+            // txt_copia
+            // 
+            this.txt_copia.Location = new System.Drawing.Point(104, 153);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(120, 27);
+            this.txt_copia.TabIndex = 5;
+            this.txt_copia.Tag = "nombre_equipo";
+            // 
+            // txt_id_copia
+            // 
+            this.txt_id_copia.Location = new System.Drawing.Point(35, 153);
+            this.txt_id_copia.Name = "txt_id_copia";
+            this.txt_id_copia.Size = new System.Drawing.Size(47, 27);
+            this.txt_id_copia.TabIndex = 4;
+            this.txt_id_copia.Tag = "id_tipo_equipo_pk";
+            // 
             // treeView1
             // 
             this.treeView1.CheckBoxes = true;
@@ -209,22 +225,6 @@
             this.txt_lbl.Size = new System.Drawing.Size(184, 27);
             this.txt_lbl.TabIndex = 45;
             this.txt_lbl.Text = "TIPO DE EQUIPO";
-            // 
-            // txt_id_copia
-            // 
-            this.txt_id_copia.Location = new System.Drawing.Point(35, 126);
-            this.txt_id_copia.Name = "txt_id_copia";
-            this.txt_id_copia.Size = new System.Drawing.Size(47, 27);
-            this.txt_id_copia.TabIndex = 4;
-            this.txt_id_copia.Tag = "id_tipo_equipo_pk";
-            // 
-            // txt_copia
-            // 
-            this.txt_copia.Location = new System.Drawing.Point(104, 126);
-            this.txt_copia.Name = "txt_copia";
-            this.txt_copia.Size = new System.Drawing.Size(120, 27);
-            this.txt_copia.TabIndex = 5;
-            this.txt_copia.Tag = "nombre_equipo";
             // 
             // tipo_equipo
             // 

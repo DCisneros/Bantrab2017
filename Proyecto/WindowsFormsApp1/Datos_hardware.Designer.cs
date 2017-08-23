@@ -93,7 +93,7 @@
             this.txt_tree.Name = "txt_tree";
             this.txt_tree.Size = new System.Drawing.Size(23, 27);
             this.txt_tree.TabIndex = 26;
-            this.txt_tree.Tag = "id_tipo_hw_pk";
+            this.txt_tree.Tag = "id_clasi_inv_pk";
             // 
             // txt_id_tipo
             // 
@@ -101,13 +101,13 @@
             this.txt_id_tipo.Name = "txt_id_tipo";
             this.txt_id_tipo.Size = new System.Drawing.Size(10, 27);
             this.txt_id_tipo.TabIndex = 25;
-            this.txt_id_tipo.Tag = "id_tipo_hw_pk";
+            this.txt_id_tipo.Tag = "id_clasi_inv_pk";
             // 
             // cbo_tipo
             // 
             this.cbo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_tipo.FormattingEnabled = true;
-            this.cbo_tipo.Location = new System.Drawing.Point(38, 62);
+            this.cbo_tipo.Location = new System.Drawing.Point(38, 67);
             this.cbo_tipo.Name = "cbo_tipo";
             this.cbo_tipo.Size = new System.Drawing.Size(267, 29);
             this.cbo_tipo.TabIndex = 24;

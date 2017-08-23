@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
         {
             DataTable dt = new DataTable();
             string selectedItem = cbo_inv.SelectedValue.ToString();
-            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM tipo where id_tipo_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
+            OdbcDataAdapter da = new OdbcDataAdapter("SELECT * FROM tipo where id_clasi_inv_pk ='" + value + "' AND estado <> 'INACTIVO'", con);
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
             {
@@ -217,6 +217,8 @@ namespace WindowsFormsApp1
                     {
                         txt_tree.Text = n_child.Tag.ToString();
                         txt_copia.Text = n_child.Text;
+                       // MessageBox.Show(n.Tag.ToString());
+                        cbo_inv.Text = n.Text;
                     }
                     else
                     {
@@ -236,6 +238,7 @@ namespace WindowsFormsApp1
                 fn.ActivarControles(groupBox1);
                 atributo = "id_tipo_pk";
                 Codigo = txt_tree.Text;
+                //cbo_inv.ValueMember = "2";
                 txt_tipo.Text = txt_copia.Text;
                 // actualizar();
 
