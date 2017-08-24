@@ -14,9 +14,83 @@ namespace WindowsFormsApp1
 {
     public partial class Gestion_de_Redes : Form
     {
-        public Gestion_de_Redes()
+        public Gestion_de_Redes(DataGridView dt, string id_gestion, string nombre_gest, string mant_real, string fecha, string id_marca, string id_modelo, string id_ubicacion, string prove_mant, string tipom, Boolean Editar1)
         {
+           
             InitializeComponent();
+            txt_id_hw.Text = id_gestion;
+            txt_host.Text = nombre_gest;
+            cbo_mant.Text = mant_real;
+            marca = id_marca;
+            fecha_in = fecha;
+            tipoe = tipom;
+            modelo = id_modelo;
+            prov_man = prove_mant;
+            ubicacion = id_ubicacion;
+            
+            para_modificar();
+
+        }
+
+        string marca;
+        string fecha_in;
+        string modelo;
+        string ubicacion;
+        string prov_man;
+        string tipoe;
+
+        public void para_modificar()
+        {
+            try
+            {
+                dataGridView1.Rows.Clear();
+                int cont1 = 0;
+                //dataGridView1.Columns[1].Visible = false;
+                int id_dato = 0;
+                string dato;
+                string cadena;
+                OdbcConnection Conexion2;
+                OdbcCommand Query2 = new OdbcCommand();
+                OdbcDataReader consultar2;
+
+                Conexion2 = Conexionmysql.ObtenerConexion();
+
+                Query2.CommandText = "SELECT DISTINCT DT.id_dato_hw_pk, DT.nombre_dato, DG.descripcion_det FROM dato_general DT, detalle_general DG, gestion_redes GR WHERE DT.id_clasi_inv_pk = '3' AND DG.id_gestion_redes_pk = "+txt_id_hw.Text+" AND DG.id_dato_hw_pk = DT.id_dato_hw_pk AND DT.estado <> 'INACTIVO' ;";
+                Query2.Connection = Conexion2;
+                consultar2 = Query2.ExecuteReader();
+                while (consultar2.Read())
+                {
+                    dataGridView1.Rows.Add(1);
+                    if (cont1 == 0)
+                    {
+                        id_dato = consultar2.GetInt32(0);
+                        dato = consultar2.GetString(1);
+                        cadena = consultar2.GetString(2);
+                        dataGridView1.Rows[0].Cells[0].Value = id_dato;
+                        dataGridView1.Rows[0].Cells[1].Value = dato;
+                        dataGridView1.Rows[0].Cells[2].Value = cadena;
+                        // MessageBox.Show(Convert.ToString(id));
+                    }
+                    else
+                    {
+                        id_dato = consultar2.GetInt32(0);
+                        dato = consultar2.GetString(1);
+                        cadena = consultar2.GetString(2);
+                        dataGridView1.Rows[cont1].Cells[0].Value = id_dato;
+                        dataGridView1.Rows[cont1].Cells[1].Value = dato;
+                        dataGridView1.Rows[cont1].Cells[2].Value = cadena;
+
+                    }
+                    cont1++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Conexionmysql.Desconectar();
+
         }
 
         FuncionesNavegador.CapaNegocio fn = new FuncionesNavegador.CapaNegocio();
@@ -199,6 +273,7 @@ namespace WindowsFormsApp1
 
         private void Gestion_de_Redes_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(marca);
             llenarmarca();
             llenarmodelo();
             llenarubicacion();
@@ -209,6 +284,32 @@ namespace WindowsFormsApp1
             dateTimePicker1.Visible = false;
             llenardatos();
             dataGridView1.Enabled = false;
+            //MessageBox.Show(Convert.ToString(marca.Length));
+
+            cbo_marca.SelectedValue = Convert.ToInt32(marca);
+
+            if (fecha_in == "No Aplica")
+            {
+                cbo_fecha.Text = fecha_in;
+            }
+            else if (fecha_in == "Sin garantia ")
+            {
+                cbo_fecha.Text = fecha_in;
+            }
+            else if (fecha_in == "N/A")
+            {
+                cbo_fecha.Text = fecha_in;
+            }
+            else
+            {
+                cbo_fecha.Text = "Aplica";
+                dateTimePicker1.Text = fecha_in;
+            }
+
+            cbo_modelo.SelectedValue = Convert.ToInt32(modelo);
+            cbo_prov_man.SelectedValue = Convert.ToInt32(prov_man);
+            cbo_tipo_eq.SelectedValue = Convert.ToInt32(tipoe);
+
         }
 
         private void llenardatos()
@@ -222,13 +323,9 @@ namespace WindowsFormsApp1
                 OdbcConnection Conexion2;
                 OdbcCommand Query2 = new OdbcCommand();
                 OdbcDataReader consultar2;
-                //string sql = "dsn=hotelsancarlos;server=localhost;user id=root;database=hotelsancarlos;password=";
-                //string sql = "dsn=inventario;server=localhost;database=inventario;uid=root;password=";
-                //string sql = "server = 127.0.0.1; database = hotelsancarlos; uid = root; pwd =; ";
-                //Conexion2 = new OdbcConnection();
+                
                 Conexion2 = Conexionmysql.ObtenerConexion();
-                //Conexion2.ConnectionString = sql;
-               // Conexion2.Open();
+                
                 Query2.CommandText = "SELECT id_dato_hw_pk,nombre_dato From dato_general where id_clasi_inv_pk = 3 And estado <> 'INACTIVO' ;";
                 Query2.Connection = Conexion2;
                 consultar2 = Query2.ExecuteReader();
@@ -276,9 +373,160 @@ namespace WindowsFormsApp1
             }
         }
 
+        public void id_host()
+        {
+            try
+            {
+                
+                //dataGridView1.Columns[1].Visible = false;
+                int id_dato = 0;
+                MessageBox.Show(Convert.ToString(txt_host.Text));
+                OdbcConnection Conexion2;
+                OdbcCommand Query2 = new OdbcCommand();
+                OdbcDataReader consultar2;
+
+                Conexion2 = Conexionmysql.ObtenerConexion();
+
+                Query2.CommandText = "SELECT id_gestion_redes_pk from gestion_redes where nombre_gest Like "+"'"+""+ txt_host.Text +""+"'"+" ;";
+                Query2.Connection = Conexion2;
+                consultar2 = Query2.ExecuteReader();
+                while (consultar2.Read())
+                {
+                    id_dato = consultar2.GetInt32(0);
+                    txt_id_hw.Text = Convert.ToString(id_dato);
+                    MessageBox.Show(Convert.ToString(id_dato));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Conexionmysql.Desconectar();
+        }
+
+        public void detalle_hostname()
+        {
+            id_host();
+            try
+            {
+                for (int fila = 0; fila < dataGridView1.Rows.Count - 1; fila++)
+                {
+                    txt_dato_hw.Text = dataGridView1.Rows[fila].Cells[0].Value.ToString();
+                    txt_descr.Text = dataGridView1.Rows[fila].Cells[2].Value.ToString();
+                    MessageBox.Show(dataGridView1.Rows[fila].Cells[0].Value.ToString());
+                    
+                    TextBox[] textbox = {txt_dato_hw, txt_descr, txt_id_hw};
+                    DataTable datos = fn.construirDataTable(textbox);
+                    if (datos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Hay campos vacios", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string tabla = "detalle_general";
+                        if (Editar)
+                        {
+                            fn.modificar(datos, tabla, atributo, Codigo);
+
+
+                        }
+                        else
+                        {
+                            fn.insertar(datos, tabla);
+
+                        }
+                        //
+                    }
+                    // actualizar();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error durante el proceso...", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
+
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                string selectedItem = cbo_marca.SelectedValue.ToString();
+                txt_marca.Text = selectedItem;
+                string selectedItem1 = cbo_modelo.SelectedValue.ToString();
+                txt_modelo.Text = selectedItem1;
+                string selectedItem2 = cbo_ubi.SelectedValue.ToString();
+                txt_ubicacion.Text = selectedItem2;
+                txt_mant.Text = cbo_mant.Text;
+                string selectedItem3 = cbo_prov_man.SelectedValue.ToString();
+                txt_prov_mant.Text = selectedItem3;
+                string selectedItem4 = cbo_tipo_eq.SelectedValue.ToString();
+                txt_equipo.Text = selectedItem4;
+                if (cbo_fecha.Text == "Aplica")
+                {
+                    txt_fecha.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+                } else
+                {
+                    txt_fecha.Text = cbo_fecha.Text;
+                }
+
+                txt_clasifi.Text ="3";
+
+                TextBox[] textbox = { txt_host, txt_fecha, txt_mant, txt_marca, txt_modelo, txt_ubicacion, txt_prov_mant, txt_equipo, txt_clasifi};
+                DataTable datos = fn.construirDataTable(textbox);
+                if (datos.Rows.Count == 0)
+                {
+                    MessageBox.Show("Hay campos vacios", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string tabla = "gestion_redes";
+                    if (Editar)
+                    {
+                        fn.modificar(datos, tabla, atributo, Codigo);
+
+
+                    }
+                    else
+                    {
+                        fn.insertar(datos, tabla);
+
+                    }
+                    //fn.LimpiarComponentes(groupBox1);
+                }
+                // actualizar();
+                detalle_hostname();
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error durante el proceso...", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            fn.LimpiarComponentes(groupBox1);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Editar = true;
+                fn.ActivarControles(groupBox1);
+                atributo = "id_gestion_redes_pk";
+                Codigo = txt_id_hw.Text;
+                
+                // actualizar();
+
+            }
+            catch
+            {
+                MessageBox.Show("No se ha seleccionado ningun registro a modificar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

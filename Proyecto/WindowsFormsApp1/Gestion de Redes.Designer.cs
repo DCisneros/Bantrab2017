@@ -35,7 +35,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbo_fecha = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_host = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,9 +49,6 @@
             this.cbo_prov_man = new System.Windows.Forms.ComboBox();
             this.cbo_marca = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -60,6 +57,20 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.txt_marca = new System.Windows.Forms.TextBox();
+            this.txt_modelo = new System.Windows.Forms.TextBox();
+            this.txt_ubicacion = new System.Windows.Forms.TextBox();
+            this.txt_prov_mant = new System.Windows.Forms.TextBox();
+            this.txt_equipo = new System.Windows.Forms.TextBox();
+            this.txt_fecha = new System.Windows.Forms.TextBox();
+            this.txt_infra = new System.Windows.Forms.TextBox();
+            this.txt_dato_hw = new System.Windows.Forms.TextBox();
+            this.txt_descr = new System.Windows.Forms.TextBox();
+            this.txt_mant = new System.Windows.Forms.TextBox();
+            this.txt_clasifi = new System.Windows.Forms.TextBox();
+            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,12 +78,23 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_clasifi);
+            this.groupBox1.Controls.Add(this.txt_mant);
+            this.groupBox1.Controls.Add(this.txt_descr);
             this.groupBox1.Controls.Add(this.txt_id_hw);
+            this.groupBox1.Controls.Add(this.txt_host);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txt_dato_hw);
+            this.groupBox1.Controls.Add(this.txt_infra);
+            this.groupBox1.Controls.Add(this.txt_fecha);
+            this.groupBox1.Controls.Add(this.txt_equipo);
+            this.groupBox1.Controls.Add(this.txt_prov_mant);
+            this.groupBox1.Controls.Add(this.txt_ubicacion);
+            this.groupBox1.Controls.Add(this.txt_modelo);
+            this.groupBox1.Controls.Add(this.txt_marca);
             this.groupBox1.Controls.Add(this.cbo_mant);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbo_fecha);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label10);
@@ -97,13 +119,15 @@
             // 
             // txt_id_hw
             // 
-            this.txt_id_hw.Location = new System.Drawing.Point(591, 39);
+            this.txt_id_hw.Location = new System.Drawing.Point(607, 38);
             this.txt_id_hw.Name = "txt_id_hw";
-            this.txt_id_hw.Size = new System.Drawing.Size(43, 27);
+            this.txt_id_hw.Size = new System.Drawing.Size(10, 27);
             this.txt_id_hw.TabIndex = 28;
+            this.txt_id_hw.Tag = "id_gestion_redes_pk";
             // 
             // cbo_mant
             // 
+            this.cbo_mant.DisplayMember = "mant_real_por";
             this.cbo_mant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_mant.FormattingEnabled = true;
             this.cbo_mant.Items.AddRange(new object[] {
@@ -113,6 +137,7 @@
             this.cbo_mant.Name = "cbo_mant";
             this.cbo_mant.Size = new System.Drawing.Size(112, 29);
             this.cbo_mant.TabIndex = 27;
+            this.cbo_mant.ValueMember = "mant_real_por";
             // 
             // label7
             // 
@@ -141,18 +166,19 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(226, 42);
+            this.label6.Location = new System.Drawing.Point(251, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 21);
             this.label6.TabIndex = 24;
             this.label6.Text = "Hostname:";
             // 
-            // textBox1
+            // txt_host
             // 
-            this.textBox1.Location = new System.Drawing.Point(331, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 27);
-            this.textBox1.TabIndex = 23;
+            this.txt_host.Location = new System.Drawing.Point(356, 41);
+            this.txt_host.Name = "txt_host";
+            this.txt_host.Size = new System.Drawing.Size(245, 27);
+            this.txt_host.TabIndex = 23;
+            this.txt_host.Tag = "nombre_gest";
             // 
             // label3
             // 
@@ -191,7 +217,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(494, 435);
+            this.label4.Location = new System.Drawing.Point(507, 435);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 21);
             this.label4.TabIndex = 14;
@@ -273,24 +299,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // id_dato
-            // 
-            this.id_dato.HeaderText = "ID_DATO";
-            this.id_dato.Name = "id_dato";
-            this.id_dato.Visible = false;
-            // 
-            // datosq
-            // 
-            this.datosq.HeaderText = "DATOS ESPECIFICOS";
-            this.datosq.Name = "datosq";
-            this.datosq.Width = 300;
-            // 
-            // descr
-            // 
-            this.descr.HeaderText = "DESCRIPCION";
-            this.descr.Name = "descr";
-            this.descr.Width = 498;
-            // 
             // txt_lbl
             // 
             this.txt_lbl.AutoSize = true;
@@ -364,6 +372,7 @@
             this.btn_editar.Size = new System.Drawing.Size(65, 69);
             this.btn_editar.TabIndex = 2;
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_eliminar
             // 
@@ -410,6 +419,115 @@
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // txt_marca
+            // 
+            this.txt_marca.Location = new System.Drawing.Point(373, 315);
+            this.txt_marca.Name = "txt_marca";
+            this.txt_marca.Size = new System.Drawing.Size(16, 27);
+            this.txt_marca.TabIndex = 29;
+            this.txt_marca.Tag = "id_marca_pk";
+            // 
+            // txt_modelo
+            // 
+            this.txt_modelo.Location = new System.Drawing.Point(788, 313);
+            this.txt_modelo.Name = "txt_modelo";
+            this.txt_modelo.Size = new System.Drawing.Size(8, 27);
+            this.txt_modelo.TabIndex = 30;
+            this.txt_modelo.Tag = "id_modelo_pk";
+            this.txt_modelo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // txt_ubicacion
+            // 
+            this.txt_ubicacion.Location = new System.Drawing.Point(370, 368);
+            this.txt_ubicacion.Name = "txt_ubicacion";
+            this.txt_ubicacion.Size = new System.Drawing.Size(15, 27);
+            this.txt_ubicacion.TabIndex = 31;
+            this.txt_ubicacion.Tag = "id_ubicacion_pk";
+            // 
+            // txt_prov_mant
+            // 
+            this.txt_prov_mant.Location = new System.Drawing.Point(479, 429);
+            this.txt_prov_mant.Name = "txt_prov_mant";
+            this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
+            this.txt_prov_mant.TabIndex = 32;
+            this.txt_prov_mant.Tag = "id_prov_mante_pk";
+            // 
+            // txt_equipo
+            // 
+            this.txt_equipo.Location = new System.Drawing.Point(834, 427);
+            this.txt_equipo.Name = "txt_equipo";
+            this.txt_equipo.Size = new System.Drawing.Size(10, 27);
+            this.txt_equipo.TabIndex = 33;
+            this.txt_equipo.Tag = "id_tipo_equipo_pk";
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.Location = new System.Drawing.Point(778, 490);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(10, 27);
+            this.txt_fecha.TabIndex = 34;
+            this.txt_fecha.Tag = "fecha_inicio_garantia";
+            // 
+            // txt_infra
+            // 
+            this.txt_infra.Location = new System.Drawing.Point(802, 51);
+            this.txt_infra.Name = "txt_infra";
+            this.txt_infra.Size = new System.Drawing.Size(8, 27);
+            this.txt_infra.TabIndex = 35;
+            this.txt_infra.Tag = "id_infra_pk";
+            this.txt_infra.Text = "1";
+            // 
+            // txt_dato_hw
+            // 
+            this.txt_dato_hw.Location = new System.Drawing.Point(788, 51);
+            this.txt_dato_hw.Name = "txt_dato_hw";
+            this.txt_dato_hw.Size = new System.Drawing.Size(10, 27);
+            this.txt_dato_hw.TabIndex = 36;
+            this.txt_dato_hw.Tag = "id_dato_hw_pk";
+            // 
+            // txt_descr
+            // 
+            this.txt_descr.Location = new System.Drawing.Point(772, 51);
+            this.txt_descr.Name = "txt_descr";
+            this.txt_descr.Size = new System.Drawing.Size(10, 27);
+            this.txt_descr.TabIndex = 37;
+            this.txt_descr.Tag = "descripcion_det";
+            // 
+            // txt_mant
+            // 
+            this.txt_mant.Location = new System.Drawing.Point(784, 368);
+            this.txt_mant.Name = "txt_mant";
+            this.txt_mant.Size = new System.Drawing.Size(8, 27);
+            this.txt_mant.TabIndex = 38;
+            this.txt_mant.Tag = "mant_real_por";
+            // 
+            // txt_clasifi
+            // 
+            this.txt_clasifi.Location = new System.Drawing.Point(17, 26);
+            this.txt_clasifi.Name = "txt_clasifi";
+            this.txt_clasifi.Size = new System.Drawing.Size(8, 27);
+            this.txt_clasifi.TabIndex = 39;
+            this.txt_clasifi.Tag = "id_clasi_inv_pk";
+            // 
+            // id_dato
+            // 
+            this.id_dato.HeaderText = "ID_DATO";
+            this.id_dato.Name = "id_dato";
+            this.id_dato.Visible = false;
+            // 
+            // datosq
+            // 
+            this.datosq.HeaderText = "DATOS ESPECIFICOS";
+            this.datosq.Name = "datosq";
+            this.datosq.ReadOnly = true;
+            this.datosq.Width = 300;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "DESCRIPCION";
+            this.descr.Name = "descr";
+            this.descr.Width = 498;
             // 
             // Gestion_de_Redes
             // 
@@ -463,10 +581,21 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbo_fecha;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_host;
+        private System.Windows.Forms.TextBox txt_id_hw;
+        private System.Windows.Forms.TextBox txt_modelo;
+        private System.Windows.Forms.TextBox txt_marca;
+        private System.Windows.Forms.TextBox txt_descr;
+        private System.Windows.Forms.TextBox txt_dato_hw;
+        private System.Windows.Forms.TextBox txt_infra;
+        private System.Windows.Forms.TextBox txt_fecha;
+        private System.Windows.Forms.TextBox txt_equipo;
+        private System.Windows.Forms.TextBox txt_prov_mant;
+        private System.Windows.Forms.TextBox txt_ubicacion;
+        private System.Windows.Forms.TextBox txt_mant;
+        private System.Windows.Forms.TextBox txt_clasifi;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_dato;
         private System.Windows.Forms.DataGridViewTextBoxColumn datosq;
         private System.Windows.Forms.DataGridViewTextBoxColumn descr;
-        private System.Windows.Forms.TextBox txt_id_hw;
     }
 }

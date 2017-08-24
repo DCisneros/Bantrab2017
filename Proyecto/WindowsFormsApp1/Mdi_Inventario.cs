@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
         Gabinetes gb;
         Rol rl;
         Lugares lg;
-        Gestion_de_Redes gr;
+        Redes_y_Telecomunicaciones gr;
         Proveedor_de_Mantenimiento pm;
         tipo_equipo tq;
 
@@ -230,7 +230,7 @@ namespace WindowsFormsApp1
         {
             if (gr == null)
             {
-                gr = new Gestion_de_Redes();
+                gr = new Redes_y_Telecomunicaciones();
                 gr.MdiParent = this;
                 gr.FormClosed += new FormClosedEventHandler(gestion_redes_FormClosed);
                 gr.Show();
