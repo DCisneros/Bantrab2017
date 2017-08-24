@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestion_de_Redes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_id_hw = new System.Windows.Forms.TextBox();
             this.cbo_mant = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbo_fecha = new System.Windows.Forms.ComboBox();
@@ -48,6 +49,9 @@
             this.cbo_prov_man = new System.Windows.Forms.ComboBox();
             this.cbo_marca = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -56,10 +60,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_id_hw = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -94,6 +94,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txt_id_hw
+            // 
+            this.txt_id_hw.Location = new System.Drawing.Point(591, 39);
+            this.txt_id_hw.Name = "txt_id_hw";
+            this.txt_id_hw.Size = new System.Drawing.Size(43, 27);
+            this.txt_id_hw.TabIndex = 28;
             // 
             // cbo_mant
             // 
@@ -266,16 +273,34 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // id_dato
+            // 
+            this.id_dato.HeaderText = "ID_DATO";
+            this.id_dato.Name = "id_dato";
+            this.id_dato.Visible = false;
+            // 
+            // datosq
+            // 
+            this.datosq.HeaderText = "DATOS ESPECIFICOS";
+            this.datosq.Name = "datosq";
+            this.datosq.Width = 300;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "DESCRIPCION";
+            this.descr.Name = "descr";
+            this.descr.Width = 498;
+            // 
             // txt_lbl
             // 
             this.txt_lbl.AutoSize = true;
             this.txt_lbl.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_lbl.Location = new System.Drawing.Point(353, 9);
+            this.txt_lbl.Location = new System.Drawing.Point(284, 9);
             this.txt_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_lbl.Name = "txt_lbl";
-            this.txt_lbl.Size = new System.Drawing.Size(218, 27);
+            this.txt_lbl.Size = new System.Drawing.Size(362, 27);
             this.txt_lbl.TabIndex = 53;
-            this.txt_lbl.Text = "GESTION DE REDES ";
+            this.txt_lbl.Text = "REDES Y TELECOMUNICACIONES";
             // 
             // groupBox2
             // 
@@ -385,31 +410,6 @@
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
-            // id_dato
-            // 
-            this.id_dato.HeaderText = "ID_DATO";
-            this.id_dato.Name = "id_dato";
-            this.id_dato.Visible = false;
-            // 
-            // datosq
-            // 
-            this.datosq.HeaderText = "DATOS ESPECIFICOS";
-            this.datosq.Name = "datosq";
-            this.datosq.Width = 300;
-            // 
-            // descr
-            // 
-            this.descr.HeaderText = "DESCRIPCION";
-            this.descr.Name = "descr";
-            this.descr.Width = 498;
-            // 
-            // txt_id_hw
-            // 
-            this.txt_id_hw.Location = new System.Drawing.Point(591, 39);
-            this.txt_id_hw.Name = "txt_id_hw";
-            this.txt_id_hw.Size = new System.Drawing.Size(43, 27);
-            this.txt_id_hw.TabIndex = 28;
             // 
             // Gestion_de_Redes
             // 

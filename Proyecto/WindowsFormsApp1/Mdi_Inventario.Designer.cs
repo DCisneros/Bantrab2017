@@ -42,6 +42,7 @@
             this.ubicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datoDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorDeMantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,6 +170,13 @@
             this.proveedorDeMantenimientoToolStripMenuItem.Text = "Proveedor de Mantenimiento";
             this.proveedorDeMantenimientoToolStripMenuItem.Click += new System.EventHandler(this.proveedorDeMantenimientoToolStripMenuItem_Click);
             // 
+            // tipoDeEquipoToolStripMenuItem
+            // 
+            this.tipoDeEquipoToolStripMenuItem.Name = "tipoDeEquipoToolStripMenuItem";
+            this.tipoDeEquipoToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.tipoDeEquipoToolStripMenuItem.Text = "Tipo de Equipo";
+            this.tipoDeEquipoToolStripMenuItem.Click += new System.EventHandler(this.tipoDeEquipoToolStripMenuItem_Click_1);
+            // 
             // procesosToolStripMenuItem
             // 
             this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -219,18 +226,13 @@
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // tipoDeEquipoToolStripMenuItem
-            // 
-            this.tipoDeEquipoToolStripMenuItem.Name = "tipoDeEquipoToolStripMenuItem";
-            this.tipoDeEquipoToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
-            this.tipoDeEquipoToolStripMenuItem.Text = "Tipo de Equipo";
-            this.tipoDeEquipoToolStripMenuItem.Click += new System.EventHandler(this.tipoDeEquipoToolStripMenuItem_Click_1);
-            // 
             // Mdi_Inventario
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(760, 482);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

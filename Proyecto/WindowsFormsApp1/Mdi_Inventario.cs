@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
             if (tp_eq == null)
             {
                 tp_eq = new tipo_equipo();
-                tp_eq.MdiParent = this.MdiParent;
+                tp_eq.MdiParent = this;
                 tp_eq.FormClosed += new FormClosedEventHandler(tp_eq_FormClosed);
                 tp_eq.Show();
             }
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
             if (mark == null)
             {
                 mark = new Marca();
-                mark.MdiParent = this.MdiParent;
+                mark.MdiParent = this;
                 mark.FormClosed += new FormClosedEventHandler(mark_FormClosed);
                 mark.Show();
             }
@@ -89,7 +89,7 @@ namespace WindowsFormsApp1
             if ( mol == null)
             {
                 mol = new Modelo();
-                mol.MdiParent = this.MdiParent;
+                mol.MdiParent = this;
                 mol.FormClosed += new FormClosedEventHandler(mol_FormClosed);
                 mol.Show();
             }
@@ -104,7 +104,7 @@ namespace WindowsFormsApp1
             if (gar == null)
             {
                 gar = new garantias_grid();
-                gar.MdiParent = this.MdiParent;
+                gar.MdiParent = this;
                 gar.FormClosed += new FormClosedEventHandler(gar_FormClosed);
                 gar.Show();
             }
@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
             if (v_lan == null)
             {
                 v_lan = new vlan_grid();
-                v_lan.MdiParent = this.MdiParent;
+                v_lan.MdiParent = this;
                 v_lan.FormClosed += new FormClosedEventHandler(v_lan_FormClosed);
                 v_lan.Show();
             }
@@ -135,7 +135,7 @@ namespace WindowsFormsApp1
             if (cl == null)
             {
                 cl = new cluster();
-                cl.MdiParent = this.MdiParent;
+                cl.MdiParent = this;
                 cl.FormClosed += new FormClosedEventHandler(cluster_FormClosed);
                 cl.Show();
             }
@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
             if (rl == null)
             {
                 rl = new Rol();
-                rl.MdiParent = this.MdiParent;
+                rl.MdiParent = this;
                 rl.FormClosed += new FormClosedEventHandler(rol_FormClosed);
                 rl.Show();
             }
@@ -167,7 +167,7 @@ namespace WindowsFormsApp1
             if (tp == null)
             {
                 tp = new Tipos();
-                tp.MdiParent = this.MdiParent;
+                tp.MdiParent = this;
                 tp.FormClosed += new FormClosedEventHandler(tipos_FormClosed);
                 tp.Show();
             }
@@ -183,7 +183,7 @@ namespace WindowsFormsApp1
             if (gb == null)
             {
                 gb = new Gabinetes();
-                gb.MdiParent = this.MdiParent;
+                gb.MdiParent = this;
                 gb.FormClosed += new FormClosedEventHandler(gabinete_FormClosed);
                 gb.Show();
             }
@@ -199,7 +199,7 @@ namespace WindowsFormsApp1
             if (lg == null)
             {
                 lg = new Lugares();
-                lg.MdiParent = this.MdiParent;
+                lg.MdiParent = this;
                 lg.FormClosed += new FormClosedEventHandler(lugares_FormClosed);
                 lg.Show();
             }
@@ -215,7 +215,7 @@ namespace WindowsFormsApp1
             if (dt_hw == null)
             {
                 dt_hw = new Datos_hardware();
-                dt_hw.MdiParent = MdiParent;
+                dt_hw.MdiParent = this;
                 dt_hw.FormClosed += new FormClosedEventHandler(dt_hw_FormClosed);
                 dt_hw.Show();
             }
@@ -231,7 +231,7 @@ namespace WindowsFormsApp1
             if (gr == null)
             {
                 gr = new Gestion_de_Redes();
-                gr.MdiParent = MdiParent;
+                gr.MdiParent = this;
                 gr.FormClosed += new FormClosedEventHandler(gestion_redes_FormClosed);
                 gr.Show();
             }
@@ -246,7 +246,7 @@ namespace WindowsFormsApp1
             if (pm == null)
             {
                 pm = new Proveedor_de_Mantenimiento();
-                pm.MdiParent = MdiParent;
+                pm.MdiParent = this;
                 pm.FormClosed += new FormClosedEventHandler(prov_mante_FormClosed);
                 pm.Show();
             }
@@ -261,7 +261,7 @@ namespace WindowsFormsApp1
             if (tq == null)
             {
                 tq = new tipo_equipo();
-                tq.MdiParent = MdiParent;
+                tq.MdiParent = this;
                 tq.FormClosed += new FormClosedEventHandler(tipo_equipo_FormClosed);
                 tq.Show();
             }
