@@ -25,6 +25,8 @@ namespace WindowsFormsApp1
 
 
         string id_gestion, nombre_gest, mant_real, fecha_gar, id_marca, id_modelo, id_ubicacion, id_prov_mant, id_tipo;
+        int modificar =0;
+
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -38,13 +40,16 @@ namespace WindowsFormsApp1
             id_ubicacion = dataGridView1.CurrentRow.Cells[8].Value.ToString();
             id_prov_mant = dataGridView1.CurrentRow.Cells[11].Value.ToString();
             id_tipo = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            Gestion_de_Redes a = new Gestion_de_Redes(dataGridView1, id_gestion, nombre_gest, mant_real, fecha_gar, id_marca, id_modelo, id_ubicacion, id_prov_mant, id_tipo, Editar);
+            modificar = 1;
+            Gestion_de_Redes a = new Gestion_de_Redes(dataGridView1, id_gestion, nombre_gest, mant_real, fecha_gar, id_marca, id_modelo, id_ubicacion, id_prov_mant, id_tipo, Editar, modificar);
             a.Show();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            Gestion_de_Redes a = new Gestion_de_Redes(dataGridView1, id_gestion, nombre_gest, mant_real, fecha_gar, id_marca, id_modelo, id_ubicacion, id_prov_mant, id_tipo, Editar);
+            Gestion_de_Redes a = new Gestion_de_Redes(dataGridView1, id_gestion, nombre_gest, mant_real, fecha_gar, id_marca, id_modelo, id_ubicacion, id_prov_mant, id_tipo, Editar, modificar);
+            a.StartPosition = FormStartPosition.CenterScreen;
+            a.MdiParent = this.ParentForm;
             a.Show();
         }
 
@@ -64,7 +69,7 @@ namespace WindowsFormsApp1
 
         private void Redes_y_Telecomunicaciones_Load(object sender, EventArgs e)
         {
-
+            actualizar();
         }
     }
 }

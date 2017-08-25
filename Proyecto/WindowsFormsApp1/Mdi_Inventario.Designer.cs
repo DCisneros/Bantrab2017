@@ -43,13 +43,16 @@
             this.datoDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorDeMantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sistemaOperativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeRedesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plataformaTIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dominioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +104,9 @@
             this.ubicacionToolStripMenuItem,
             this.datoDeInventarioToolStripMenuItem,
             this.proveedorDeMantenimientoToolStripMenuItem,
-            this.tipoDeEquipoToolStripMenuItem});
+            this.tipoDeEquipoToolStripMenuItem,
+            this.sistemaOperativoToolStripMenuItem,
+            this.dominioToolStripMenuItem});
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
             this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
@@ -177,12 +182,20 @@
             this.tipoDeEquipoToolStripMenuItem.Text = "Tipo de Equipo";
             this.tipoDeEquipoToolStripMenuItem.Click += new System.EventHandler(this.tipoDeEquipoToolStripMenuItem_Click_1);
             // 
+            // sistemaOperativoToolStripMenuItem
+            // 
+            this.sistemaOperativoToolStripMenuItem.Name = "sistemaOperativoToolStripMenuItem";
+            this.sistemaOperativoToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.sistemaOperativoToolStripMenuItem.Text = "Sistema Operativo";
+            this.sistemaOperativoToolStripMenuItem.Click += new System.EventHandler(this.sistemaOperativoToolStripMenuItem_Click);
+            // 
             // procesosToolStripMenuItem
             // 
             this.procesosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importarToolStripMenuItem,
             this.exportarToolStripMenuItem,
-            this.gestionDeRedesToolStripMenuItem});
+            this.gestionDeRedesToolStripMenuItem,
+            this.plataformaTIToolStripMenuItem});
             this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.procesosToolStripMenuItem.Text = "Procesos";
@@ -206,6 +219,13 @@
             this.gestionDeRedesToolStripMenuItem.Text = "Gestion de Redes";
             this.gestionDeRedesToolStripMenuItem.Click += new System.EventHandler(this.gestionDeRedesToolStripMenuItem_Click);
             // 
+            // plataformaTIToolStripMenuItem
+            // 
+            this.plataformaTIToolStripMenuItem.Name = "plataformaTIToolStripMenuItem";
+            this.plataformaTIToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.plataformaTIToolStripMenuItem.Text = "Plataforma TI";
+            this.plataformaTIToolStripMenuItem.Click += new System.EventHandler(this.plataformaTIToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,6 +245,13 @@
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // dominioToolStripMenuItem
+            // 
+            this.dominioToolStripMenuItem.Name = "dominioToolStripMenuItem";
+            this.dominioToolStripMenuItem.Size = new System.Drawing.Size(296, 24);
+            this.dominioToolStripMenuItem.Text = "Dominio";
+            this.dominioToolStripMenuItem.Click += new System.EventHandler(this.dominioToolStripMenuItem_Click);
             // 
             // Mdi_Inventario
             // 
@@ -273,6 +300,9 @@
         private System.Windows.Forms.ToolStripMenuItem gestionDeRedesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedorDeMantenimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDeEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plataformaTIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sistemaOperativoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dominioToolStripMenuItem;
     }
 }
 

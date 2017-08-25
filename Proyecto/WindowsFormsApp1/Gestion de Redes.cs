@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class Gestion_de_Redes : Form
     {
-        public Gestion_de_Redes(DataGridView dt, string id_gestion, string nombre_gest, string mant_real, string fecha, string id_marca, string id_modelo, string id_ubicacion, string prove_mant, string tipom, Boolean Editar1)
+        public Gestion_de_Redes(DataGridView dt, string id_gestion, string nombre_gest, string mant_real, string fecha, string id_marca, string id_modelo, string id_ubicacion, string prove_mant, string tipom, Boolean Editar1, int mod)
         {
            
             InitializeComponent();
@@ -27,23 +27,25 @@ namespace WindowsFormsApp1
             modelo = id_modelo;
             prov_man = prove_mant;
             ubicacion = id_ubicacion;
-            
-            para_modificar();
+            modi = mod;
+            data = dt;
+
 
         }
-
+        DataGridView data;
         string marca;
         string fecha_in;
         string modelo;
         string ubicacion;
         string prov_man;
+        int modi = 0;
         string tipoe;
 
         public void para_modificar()
         {
             try
             {
-                dataGridView1.Rows.Clear();
+                
                 int cont1 = 0;
                 //dataGridView1.Columns[1].Visible = false;
                 int id_dato = 0;
@@ -55,14 +57,17 @@ namespace WindowsFormsApp1
 
                 Conexion2 = Conexionmysql.ObtenerConexion();
 
-                Query2.CommandText = "SELECT DISTINCT DT.id_dato_hw_pk, DT.nombre_dato, DG.descripcion_det FROM dato_general DT, detalle_general DG, gestion_redes GR WHERE DT.id_clasi_inv_pk = '3' AND DG.id_gestion_redes_pk = "+txt_id_hw.Text+" AND DG.id_dato_hw_pk = DT.id_dato_hw_pk AND DT.estado <> 'INACTIVO' ;";
+                Query2.CommandText = "SELECT DISTINCT DG.id_detalle_hw_pk, DT.nombre_dato, DG.descripcion_det FROM dato_general DT, detalle_general DG, gestion_redes GR WHERE DT.id_clasi_inv_pk = '3' AND DG.id_gestion_redes_pk = "+txt_id_hw.Text+" AND DG.id_dato_hw_pk = DT.id_dato_hw_pk AND DT.estado <> 'INACTIVO' ;";
                 Query2.Connection = Conexion2;
+                
                 consultar2 = Query2.ExecuteReader();
                 while (consultar2.Read())
                 {
+                    
                     dataGridView1.Rows.Add(1);
                     if (cont1 == 0)
                     {
+                        
                         id_dato = consultar2.GetInt32(0);
                         dato = consultar2.GetString(1);
                         cadena = consultar2.GetString(2);
@@ -84,9 +89,9 @@ namespace WindowsFormsApp1
                     cont1++;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message);
+                
             }
 
             Conexionmysql.Desconectar();
@@ -108,10 +113,13 @@ namespace WindowsFormsApp1
             try
             {
                 Editar = false;
+                dataGridView1.Rows.Clear();
                 fn.ActivarControles(groupBox1);
                 fn.LimpiarComponentes(groupBox1);
                 //dataGridView1.Rows.Clear();
                 dataGridView1.Enabled = true;
+                txt_host.Enabled = true;
+                llenardatos();
 
             }
             catch (Exception ex)
@@ -128,6 +136,8 @@ namespace WindowsFormsApp1
                 fn.LimpiarComponentes(groupBox1);
                 fn.InhabilitarComponentes(groupBox1);
                 dataGridView1.Enabled = false;
+                dataGridView1.Rows.Clear();
+                txt_host.Enabled = true;
                 
             }
             catch (Exception ex)
@@ -282,7 +292,18 @@ namespace WindowsFormsApp1
             cbo_fecha.SelectedIndex = 0;
             cbo_mant.SelectedIndex = 0;
             dateTimePicker1.Visible = false;
-            llenardatos();
+            txt_host.Enabled = false;
+            fn.InhabilitarComponentes(groupBox1);
+            
+            dataGridView1.Rows.Clear();
+            if (modi == 0)
+            {
+                llenardatos();
+            }
+            else
+            {
+                para_modificar();
+            }
             dataGridView1.Enabled = false;
             //MessageBox.Show(Convert.ToString(marca.Length));
 
@@ -414,8 +435,9 @@ namespace WindowsFormsApp1
                 {
                     txt_dato_hw.Text = dataGridView1.Rows[fila].Cells[0].Value.ToString();
                     txt_descr.Text = dataGridView1.Rows[fila].Cells[2].Value.ToString();
-                    MessageBox.Show(dataGridView1.Rows[fila].Cells[0].Value.ToString());
-                    
+                    //MessageBox.Show(dataGridView1.Rows[fila].Cells[0].Value.ToString());
+                    //MessageBox.Show(dataGridView1.Rows[fila].Cells[2].Value.ToString());
+
                     TextBox[] textbox = {txt_dato_hw, txt_descr, txt_id_hw};
                     DataTable datos = fn.construirDataTable(textbox);
                     if (datos.Rows.Count == 0)
@@ -427,7 +449,11 @@ namespace WindowsFormsApp1
                         string tabla = "detalle_general";
                         if (Editar)
                         {
-                            fn.modificar(datos, tabla, atributo, Codigo);
+                            TextBox[] textbox2 = {txt_descr, txt_id_hw };
+                            DataTable datos2 = fn.construirDataTable(textbox2);
+                            atributo = "id_detalle_hw_pk";
+                            Codigo = txt_dato_hw.Text;
+                            fn.modificar(datos2, tabla, atributo, Codigo);
 
 
                         }
@@ -466,7 +492,7 @@ namespace WindowsFormsApp1
                 txt_equipo.Text = selectedItem4;
                 if (cbo_fecha.Text == "Aplica")
                 {
-                    txt_fecha.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+                    txt_fecha.Text = dateTimePicker1.Value.ToString("yyyy-MM-dd");
                 } else
                 {
                     txt_fecha.Text = cbo_fecha.Text;
@@ -504,6 +530,9 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Ocurrio un error durante el proceso...", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             fn.LimpiarComponentes(groupBox1);
+
+            dataGridView1.Rows.Clear();
+            actualizar();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -527,6 +556,43 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a modificar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                String atributo2 = "nombre_gest";
+                String codigo2 = txt_host.Text;
+                var resultado = MessageBox.Show("DESEA BORRAR EL REGISTRO SELECCIONADO", "CONFIRME SU ACCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+
+                    string tabla = "gestion_redes";
+                    fn.eliminar(tabla, atributo2, codigo2);
+                    
+                }
+
+                dataGridView1.Rows.Clear();
+                fn.LimpiarComponentes(groupBox1);
+                actualizar();
+            }
+            catch
+            {
+                MessageBox.Show("No se ha seleccionado ningun registro a eliminar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void actualizar()
+        {
+            string tabla = "gestion_redes";
+            fn.ActualizarGrid(data, "SELECT DISTINCT GR.id_gestion_redes_pk, GR.nombre_gest, GR.mant_real_por, GR.fecha_inicio_garantia, M.id_marca_pk, M.nombre_marca, MD.id_modelo_pk, MD.nombre_modelo, U.id_ubicacion_pk, U.nombre, U.detalle, PM.id_prov_mante_pk, PM.nombre_prov_mant, TE.id_tipo_equipo_pk, TE.nombre_tipo FROM gestion_redes GR, detalle_general DT, marca M, modelo MD, ubicacion U, proveedor_mantenimiento PM, tipo_equipo TE WHERE GR.id_marca_pk = M.id_marca_pk AND MD.id_modelo_pk = GR.id_modelo_pk AND U.id_ubicacion_pk = GR.id_ubicacion_pk AND PM.id_prov_mante_pk = GR.id_prov_mante_pk AND TE.id_tipo_equipo_pk = GR.id_tipo_equipo_pk AND GR.estado <> 'INACTIVO'", tabla);
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            actualizar();
         }
     }
 }

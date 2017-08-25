@@ -27,7 +27,9 @@ namespace WindowsFormsApp1
         Redes_y_Telecomunicaciones gr;
         Proveedor_de_Mantenimiento pm;
         tipo_equipo tq;
-
+        Plataforma_TI_grid pl;
+        Sistema_Operativo so;
+        Dominio dom;
 
         public Mdi_Inventario()
         {
@@ -270,6 +272,54 @@ namespace WindowsFormsApp1
         void tipo_equipo_FormClosed(object sender, EventArgs e)
         {
             tq = null;
+        }
+
+        private void plataformaTIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pl == null)
+            {
+                pl = new Plataforma_TI_grid();
+                pl.MdiParent = this;
+                pl.FormClosed += new FormClosedEventHandler(pla_ti_FormClosed);
+                pl.Show();
+            }
+        }
+
+        void pla_ti_FormClosed(object sender, EventArgs e)
+        {
+            pl = null;
+        }
+
+        private void sistemaOperativoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (so == null)
+            {
+                so = new Sistema_Operativo();
+                so.MdiParent = this;
+                so.FormClosed += new FormClosedEventHandler(so_FormClosed);
+                so.Show();
+            }
+        }
+
+        void so_FormClosed(object sender, EventArgs e)
+        {
+            so = null;
+        }
+
+        private void dominioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dom == null)
+            {
+                dom = new Dominio();
+                dom.MdiParent = this;
+                dom.FormClosed += new FormClosedEventHandler(dom_FormClosed);
+                dom.Show();
+            }
+        }
+
+        void dom_FormClosed(object sender, EventArgs e)
+        {
+            dom = null;
         }
     }
 }

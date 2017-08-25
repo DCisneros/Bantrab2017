@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sistema_Operativo));
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_copia = new System.Windows.Forms.TextBox();
+            this.txt_id_copia = new System.Windows.Forms.TextBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.txt_version = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_so = new System.Windows.Forms.TextBox();
@@ -42,9 +45,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.txt_copia = new System.Windows.Forms.TextBox();
-            this.txt_id_copia = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,28 @@
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // txt_copia
+            // 
+            this.txt_copia.Location = new System.Drawing.Point(100, 202);
+            this.txt_copia.Name = "txt_copia";
+            this.txt_copia.Size = new System.Drawing.Size(100, 27);
+            this.txt_copia.TabIndex = 16;
+            // 
+            // txt_id_copia
+            // 
+            this.txt_id_copia.Location = new System.Drawing.Point(32, 202);
+            this.txt_id_copia.Name = "txt_id_copia";
+            this.txt_id_copia.Size = new System.Drawing.Size(29, 27);
+            this.txt_id_copia.TabIndex = 15;
+            // 
+            // treeView1
+            // 
+            this.treeView1.CheckBoxes = true;
+            this.treeView1.Location = new System.Drawing.Point(347, 26);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(336, 253);
+            this.treeView1.TabIndex = 5;
             // 
             // txt_version
             // 
@@ -224,36 +246,17 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(347, 26);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(336, 253);
-            this.treeView1.TabIndex = 5;
-            // 
-            // txt_copia
-            // 
-            this.txt_copia.Location = new System.Drawing.Point(100, 202);
-            this.txt_copia.Name = "txt_copia";
-            this.txt_copia.Size = new System.Drawing.Size(100, 27);
-            this.txt_copia.TabIndex = 16;
-            // 
-            // txt_id_copia
-            // 
-            this.txt_id_copia.Location = new System.Drawing.Point(32, 202);
-            this.txt_id_copia.Name = "txt_id_copia";
-            this.txt_id_copia.Size = new System.Drawing.Size(29, 27);
-            this.txt_id_copia.TabIndex = 15;
-            // 
             // Sistema_Operativo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(725, 478);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Sistema_Operativo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema_Operativo";
             this.Load += new System.EventHandler(this.Sistema_Operativo_Load);
             this.groupBox1.ResumeLayout(false);

@@ -149,6 +149,12 @@
     <Compile Include="Plataforma TI.Designer.cs">
       <DependentUpon>Plataforma TI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plataforma_TI_grid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plataforma_TI_grid.Designer.cs">
+      <DependentUpon>Plataforma_TI_grid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor de Mantenimiento.cs">
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Plataforma TI.resx">
       <DependentUpon>Plataforma TI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plataforma_TI_grid.resx">
+      <DependentUpon>Plataforma_TI_grid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

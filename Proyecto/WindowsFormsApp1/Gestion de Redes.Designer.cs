@@ -30,12 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestion_de_Redes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_clasifi = new System.Windows.Forms.TextBox();
+            this.txt_mant = new System.Windows.Forms.TextBox();
+            this.txt_descr = new System.Windows.Forms.TextBox();
             this.txt_id_hw = new System.Windows.Forms.TextBox();
+            this.txt_host = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_dato_hw = new System.Windows.Forms.TextBox();
+            this.txt_infra = new System.Windows.Forms.TextBox();
+            this.txt_fecha = new System.Windows.Forms.TextBox();
+            this.txt_equipo = new System.Windows.Forms.TextBox();
+            this.txt_prov_mant = new System.Windows.Forms.TextBox();
+            this.txt_ubicacion = new System.Windows.Forms.TextBox();
+            this.txt_modelo = new System.Windows.Forms.TextBox();
+            this.txt_marca = new System.Windows.Forms.TextBox();
             this.cbo_mant = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbo_fecha = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_host = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,17 +68,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.txt_marca = new System.Windows.Forms.TextBox();
-            this.txt_modelo = new System.Windows.Forms.TextBox();
-            this.txt_ubicacion = new System.Windows.Forms.TextBox();
-            this.txt_prov_mant = new System.Windows.Forms.TextBox();
-            this.txt_equipo = new System.Windows.Forms.TextBox();
-            this.txt_fecha = new System.Windows.Forms.TextBox();
-            this.txt_infra = new System.Windows.Forms.TextBox();
-            this.txt_dato_hw = new System.Windows.Forms.TextBox();
-            this.txt_descr = new System.Windows.Forms.TextBox();
-            this.txt_mant = new System.Windows.Forms.TextBox();
-            this.txt_clasifi = new System.Windows.Forms.TextBox();
             this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +117,30 @@
             this.groupBox1.Text = "Datos Generales";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txt_clasifi
+            // 
+            this.txt_clasifi.Location = new System.Drawing.Point(17, 26);
+            this.txt_clasifi.Name = "txt_clasifi";
+            this.txt_clasifi.Size = new System.Drawing.Size(8, 27);
+            this.txt_clasifi.TabIndex = 39;
+            this.txt_clasifi.Tag = "id_clasi_inv_pk";
+            // 
+            // txt_mant
+            // 
+            this.txt_mant.Location = new System.Drawing.Point(784, 368);
+            this.txt_mant.Name = "txt_mant";
+            this.txt_mant.Size = new System.Drawing.Size(8, 27);
+            this.txt_mant.TabIndex = 38;
+            this.txt_mant.Tag = "mant_real_por";
+            // 
+            // txt_descr
+            // 
+            this.txt_descr.Location = new System.Drawing.Point(772, 51);
+            this.txt_descr.Name = "txt_descr";
+            this.txt_descr.Size = new System.Drawing.Size(10, 27);
+            this.txt_descr.TabIndex = 37;
+            this.txt_descr.Tag = "descripcion_det";
+            // 
             // txt_id_hw
             // 
             this.txt_id_hw.Location = new System.Drawing.Point(607, 38);
@@ -124,6 +148,89 @@
             this.txt_id_hw.Size = new System.Drawing.Size(10, 27);
             this.txt_id_hw.TabIndex = 28;
             this.txt_id_hw.Tag = "id_gestion_redes_pk";
+            // 
+            // txt_host
+            // 
+            this.txt_host.Location = new System.Drawing.Point(356, 41);
+            this.txt_host.Name = "txt_host";
+            this.txt_host.Size = new System.Drawing.Size(245, 27);
+            this.txt_host.TabIndex = 23;
+            this.txt_host.Tag = "nombre_gest";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(251, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 21);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Hostname:";
+            // 
+            // txt_dato_hw
+            // 
+            this.txt_dato_hw.Location = new System.Drawing.Point(788, 51);
+            this.txt_dato_hw.Name = "txt_dato_hw";
+            this.txt_dato_hw.Size = new System.Drawing.Size(10, 27);
+            this.txt_dato_hw.TabIndex = 36;
+            this.txt_dato_hw.Tag = "id_dato_hw_pk";
+            // 
+            // txt_infra
+            // 
+            this.txt_infra.Location = new System.Drawing.Point(802, 51);
+            this.txt_infra.Name = "txt_infra";
+            this.txt_infra.Size = new System.Drawing.Size(8, 27);
+            this.txt_infra.TabIndex = 35;
+            this.txt_infra.Tag = "id_infra_pk";
+            this.txt_infra.Text = "1";
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.Location = new System.Drawing.Point(778, 490);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(10, 27);
+            this.txt_fecha.TabIndex = 34;
+            this.txt_fecha.Tag = "fecha_inicio_garantia";
+            // 
+            // txt_equipo
+            // 
+            this.txt_equipo.Location = new System.Drawing.Point(834, 427);
+            this.txt_equipo.Name = "txt_equipo";
+            this.txt_equipo.Size = new System.Drawing.Size(10, 27);
+            this.txt_equipo.TabIndex = 33;
+            this.txt_equipo.Tag = "id_tipo_equipo_pk";
+            // 
+            // txt_prov_mant
+            // 
+            this.txt_prov_mant.Location = new System.Drawing.Point(479, 429);
+            this.txt_prov_mant.Name = "txt_prov_mant";
+            this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
+            this.txt_prov_mant.TabIndex = 32;
+            this.txt_prov_mant.Tag = "id_prov_mante_pk";
+            // 
+            // txt_ubicacion
+            // 
+            this.txt_ubicacion.Location = new System.Drawing.Point(370, 368);
+            this.txt_ubicacion.Name = "txt_ubicacion";
+            this.txt_ubicacion.Size = new System.Drawing.Size(15, 27);
+            this.txt_ubicacion.TabIndex = 31;
+            this.txt_ubicacion.Tag = "id_ubicacion_pk";
+            // 
+            // txt_modelo
+            // 
+            this.txt_modelo.Location = new System.Drawing.Point(788, 313);
+            this.txt_modelo.Name = "txt_modelo";
+            this.txt_modelo.Size = new System.Drawing.Size(8, 27);
+            this.txt_modelo.TabIndex = 30;
+            this.txt_modelo.Tag = "id_modelo_pk";
+            this.txt_modelo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // txt_marca
+            // 
+            this.txt_marca.Location = new System.Drawing.Point(373, 315);
+            this.txt_marca.Name = "txt_marca";
+            this.txt_marca.Size = new System.Drawing.Size(16, 27);
+            this.txt_marca.TabIndex = 29;
+            this.txt_marca.Tag = "id_marca_pk";
             // 
             // cbo_mant
             // 
@@ -162,23 +269,6 @@
             this.cbo_fecha.Size = new System.Drawing.Size(121, 29);
             this.cbo_fecha.TabIndex = 25;
             this.cbo_fecha.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(251, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 21);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Hostname:";
-            // 
-            // txt_host
-            // 
-            this.txt_host.Location = new System.Drawing.Point(356, 41);
-            this.txt_host.Name = "txt_host";
-            this.txt_host.Size = new System.Drawing.Size(245, 27);
-            this.txt_host.TabIndex = 23;
-            this.txt_host.Tag = "nombre_gest";
             // 
             // label3
             // 
@@ -388,6 +478,7 @@
             this.btn_eliminar.Size = new System.Drawing.Size(65, 69);
             this.btn_eliminar.TabIndex = 3;
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_actualizar
             // 
@@ -403,6 +494,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -419,96 +511,6 @@
             this.btn_cancelar.TabIndex = 5;
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
-            // txt_marca
-            // 
-            this.txt_marca.Location = new System.Drawing.Point(373, 315);
-            this.txt_marca.Name = "txt_marca";
-            this.txt_marca.Size = new System.Drawing.Size(16, 27);
-            this.txt_marca.TabIndex = 29;
-            this.txt_marca.Tag = "id_marca_pk";
-            // 
-            // txt_modelo
-            // 
-            this.txt_modelo.Location = new System.Drawing.Point(788, 313);
-            this.txt_modelo.Name = "txt_modelo";
-            this.txt_modelo.Size = new System.Drawing.Size(8, 27);
-            this.txt_modelo.TabIndex = 30;
-            this.txt_modelo.Tag = "id_modelo_pk";
-            this.txt_modelo.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // txt_ubicacion
-            // 
-            this.txt_ubicacion.Location = new System.Drawing.Point(370, 368);
-            this.txt_ubicacion.Name = "txt_ubicacion";
-            this.txt_ubicacion.Size = new System.Drawing.Size(15, 27);
-            this.txt_ubicacion.TabIndex = 31;
-            this.txt_ubicacion.Tag = "id_ubicacion_pk";
-            // 
-            // txt_prov_mant
-            // 
-            this.txt_prov_mant.Location = new System.Drawing.Point(479, 429);
-            this.txt_prov_mant.Name = "txt_prov_mant";
-            this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
-            this.txt_prov_mant.TabIndex = 32;
-            this.txt_prov_mant.Tag = "id_prov_mante_pk";
-            // 
-            // txt_equipo
-            // 
-            this.txt_equipo.Location = new System.Drawing.Point(834, 427);
-            this.txt_equipo.Name = "txt_equipo";
-            this.txt_equipo.Size = new System.Drawing.Size(10, 27);
-            this.txt_equipo.TabIndex = 33;
-            this.txt_equipo.Tag = "id_tipo_equipo_pk";
-            // 
-            // txt_fecha
-            // 
-            this.txt_fecha.Location = new System.Drawing.Point(778, 490);
-            this.txt_fecha.Name = "txt_fecha";
-            this.txt_fecha.Size = new System.Drawing.Size(10, 27);
-            this.txt_fecha.TabIndex = 34;
-            this.txt_fecha.Tag = "fecha_inicio_garantia";
-            // 
-            // txt_infra
-            // 
-            this.txt_infra.Location = new System.Drawing.Point(802, 51);
-            this.txt_infra.Name = "txt_infra";
-            this.txt_infra.Size = new System.Drawing.Size(8, 27);
-            this.txt_infra.TabIndex = 35;
-            this.txt_infra.Tag = "id_infra_pk";
-            this.txt_infra.Text = "1";
-            // 
-            // txt_dato_hw
-            // 
-            this.txt_dato_hw.Location = new System.Drawing.Point(788, 51);
-            this.txt_dato_hw.Name = "txt_dato_hw";
-            this.txt_dato_hw.Size = new System.Drawing.Size(10, 27);
-            this.txt_dato_hw.TabIndex = 36;
-            this.txt_dato_hw.Tag = "id_dato_hw_pk";
-            // 
-            // txt_descr
-            // 
-            this.txt_descr.Location = new System.Drawing.Point(772, 51);
-            this.txt_descr.Name = "txt_descr";
-            this.txt_descr.Size = new System.Drawing.Size(10, 27);
-            this.txt_descr.TabIndex = 37;
-            this.txt_descr.Tag = "descripcion_det";
-            // 
-            // txt_mant
-            // 
-            this.txt_mant.Location = new System.Drawing.Point(784, 368);
-            this.txt_mant.Name = "txt_mant";
-            this.txt_mant.Size = new System.Drawing.Size(8, 27);
-            this.txt_mant.TabIndex = 38;
-            this.txt_mant.Tag = "mant_real_por";
-            // 
-            // txt_clasifi
-            // 
-            this.txt_clasifi.Location = new System.Drawing.Point(17, 26);
-            this.txt_clasifi.Name = "txt_clasifi";
-            this.txt_clasifi.Size = new System.Drawing.Size(8, 27);
-            this.txt_clasifi.TabIndex = 39;
-            this.txt_clasifi.Tag = "id_clasi_inv_pk";
             // 
             // id_dato
             // 
