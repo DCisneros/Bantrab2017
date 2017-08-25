@@ -14,9 +14,11 @@ namespace WindowsFormsApp1
 {
     public partial class Plataforma_TI : Form
     {
-        public Plataforma_TI(DataGridView dt, string id_infra, string nombre_infra, string mante, string id_marca, string id_modelo, string id_so, string id_rol, string id_dominio, string id_tipo, string id_gab, string id_ubi, string id_prov_manm)
+        public Plataforma_TI(DataGridView dt, string id_infra, string nombre_infra, string mante, string id_marca, string id_modelo, string id_so, string id_rol, string id_dominio, string id_tipo, string id_gab, string id_ubi, string id_prov_manm, Boolean Editar1, int mod)
         { 
             InitializeComponent();
+            data = dt;
+            Editar = Editar1;
             txt_id_hw.Text = id_infra;
             txt_infra.Text = nombre_infra;
             cbo_mant.Text = mante;
@@ -28,12 +30,12 @@ namespace WindowsFormsApp1
             gabinete = id_gab;
             tipo = id_tipo;
             dominio = id_dominio;
-
-
+            prov_man = id_prov_manm;
+            modi = mod;
 
 
         }
-
+        DataGridView data;
         string marca;
         string modelo;
         string ubicacion;
@@ -43,7 +45,7 @@ namespace WindowsFormsApp1
         string tipo;
         string dominio;
         string prov_man;
-
+        int modi = 0;
             
 
         FuncionesNavegador.CapaNegocio fn = new FuncionesNavegador.CapaNegocio();
@@ -67,6 +69,14 @@ namespace WindowsFormsApp1
             cbo_mant.SelectedIndex = 0;
             llenardatos();
 
+            cbo_marca.SelectedValue = Convert.ToInt32(marca);
+            cbo_modelo.SelectedValue = Convert.ToInt32(modelo);
+            cbo_prov_man.SelectedValue = Convert.ToInt32(prov_man);
+            cbo_so.SelectedValue = Convert.ToInt32(so);
+            cbo_gab.SelectedValue = Convert.ToInt32(gabinete);
+            cbo_rol.SelectedValue = Convert.ToInt32(rol);
+            cbo_tipo.SelectedValue = Convert.ToInt32(tipo);
+            cbo_ubi.SelectedValue = Convert.ToInt32(ubicacion);
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            Plataforma_TI a = new Plataforma_TI(dataGridView1, id_infra, nombre_infra, mante, id_marca, id_modelo, id_so, id_rol, id_dominio, id_tipo, id_gabinete, id_ubicacion, id_prov_man);
+            Plataforma_TI a = new Plataforma_TI(dataGridView1, id_infra, nombre_infra, mante, id_marca, id_modelo, id_so, id_rol, id_dominio, id_tipo, id_gabinete, id_ubicacion, id_prov_man, Editar, modificar);
             a.StartPosition = FormStartPosition.CenterScreen;
             a.MdiParent = this.ParentForm;
             a.Show();
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
             id_prov_man = dataGridView1.CurrentRow.Cells[21].Value.ToString();
 
             modificar = 1;
-            Plataforma_TI a = new Plataforma_TI(dataGridView1, id_infra, nombre_infra, mante, id_marca, id_modelo, id_so, id_rol, id_dominio, id_tipo, id_gabinete, id_ubicacion, id_prov_man);
+            Plataforma_TI a = new Plataforma_TI(dataGridView1, id_infra, nombre_infra, mante, id_marca, id_modelo, id_so, id_rol, id_dominio, id_tipo, id_gabinete, id_ubicacion, id_prov_man, Editar, modificar);
             a.Show();
         }
     }

@@ -330,6 +330,7 @@ namespace WindowsFormsApp1
             cbo_modelo.SelectedValue = Convert.ToInt32(modelo);
             cbo_prov_man.SelectedValue = Convert.ToInt32(prov_man);
             cbo_tipo_eq.SelectedValue = Convert.ToInt32(tipoe);
+            cbo_ubi.SelectedValue = Convert.ToInt32(ubicacion);
 
         }
 
