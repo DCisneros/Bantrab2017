@@ -30,6 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Plataforma_TI));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_clasifi = new System.Windows.Forms.TextBox();
+            this.txt_descr = new System.Windows.Forms.TextBox();
+            this.txt_dato_hw = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_clus = new System.Windows.Forms.TextBox();
+            this.txt_dominio = new System.Windows.Forms.TextBox();
+            this.txt_gabinete = new System.Windows.Forms.TextBox();
+            this.txt_rol = new System.Windows.Forms.TextBox();
+            this.txt_tipo = new System.Windows.Forms.TextBox();
+            this.txt_so = new System.Windows.Forms.TextBox();
+            this.txt_id_hw = new System.Windows.Forms.TextBox();
+            this.txt_prov_mant = new System.Windows.Forms.TextBox();
+            this.txt_infra = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txt_modelo = new System.Windows.Forms.TextBox();
+            this.txt_ubicacion = new System.Windows.Forms.TextBox();
+            this.txt_marca = new System.Windows.Forms.TextBox();
+            this.txt_mant = new System.Windows.Forms.TextBox();
+            this.cbo_mant = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,26 +79,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.txt_mant = new System.Windows.Forms.TextBox();
-            this.cbo_mant = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt_marca = new System.Windows.Forms.TextBox();
-            this.txt_ubicacion = new System.Windows.Forms.TextBox();
-            this.txt_modelo = new System.Windows.Forms.TextBox();
-            this.txt_prov_mant = new System.Windows.Forms.TextBox();
-            this.txt_id_hw = new System.Windows.Forms.TextBox();
-            this.txt_infra = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txt_so = new System.Windows.Forms.TextBox();
-            this.txt_tipo = new System.Windows.Forms.TextBox();
-            this.txt_rol = new System.Windows.Forms.TextBox();
-            this.txt_gabinete = new System.Windows.Forms.TextBox();
-            this.txt_dominio = new System.Windows.Forms.TextBox();
-            this.txt_clus = new System.Windows.Forms.TextBox();
-            this.txt_descr = new System.Windows.Forms.TextBox();
-            this.txt_dato_hw = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txt_clasifi = new System.Windows.Forms.TextBox();
             this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datos_Es = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,6 +138,176 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txt_clasifi
+            // 
+            this.txt_clasifi.Location = new System.Drawing.Point(17, 29);
+            this.txt_clasifi.Name = "txt_clasifi";
+            this.txt_clasifi.Size = new System.Drawing.Size(8, 27);
+            this.txt_clasifi.TabIndex = 70;
+            this.txt_clasifi.Tag = "id_clasi_inv_pk";
+            // 
+            // txt_descr
+            // 
+            this.txt_descr.Location = new System.Drawing.Point(762, 33);
+            this.txt_descr.Name = "txt_descr";
+            this.txt_descr.Size = new System.Drawing.Size(10, 27);
+            this.txt_descr.TabIndex = 69;
+            this.txt_descr.Tag = "descripcion_det";
+            // 
+            // txt_dato_hw
+            // 
+            this.txt_dato_hw.Location = new System.Drawing.Point(778, 33);
+            this.txt_dato_hw.Name = "txt_dato_hw";
+            this.txt_dato_hw.Size = new System.Drawing.Size(10, 27);
+            this.txt_dato_hw.TabIndex = 68;
+            this.txt_dato_hw.Tag = "id_dato_hw_pk";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(792, 33);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(8, 27);
+            this.textBox1.TabIndex = 67;
+            this.textBox1.Tag = "id_infra_pk";
+            this.textBox1.Text = "1";
+            // 
+            // txt_clus
+            // 
+            this.txt_clus.Location = new System.Drawing.Point(778, 403);
+            this.txt_clus.Name = "txt_clus";
+            this.txt_clus.Size = new System.Drawing.Size(10, 27);
+            this.txt_clus.TabIndex = 66;
+            this.txt_clus.Tag = "id_cluster_pk";
+            // 
+            // txt_dominio
+            // 
+            this.txt_dominio.Location = new System.Drawing.Point(365, 452);
+            this.txt_dominio.Name = "txt_dominio";
+            this.txt_dominio.Size = new System.Drawing.Size(8, 27);
+            this.txt_dominio.TabIndex = 65;
+            this.txt_dominio.Tag = "id_dominio_pk";
+            // 
+            // txt_gabinete
+            // 
+            this.txt_gabinete.Location = new System.Drawing.Point(365, 403);
+            this.txt_gabinete.Name = "txt_gabinete";
+            this.txt_gabinete.Size = new System.Drawing.Size(8, 27);
+            this.txt_gabinete.TabIndex = 64;
+            this.txt_gabinete.Tag = "id_gabinete_pk";
+            // 
+            // txt_rol
+            // 
+            this.txt_rol.Location = new System.Drawing.Point(778, 357);
+            this.txt_rol.Name = "txt_rol";
+            this.txt_rol.Size = new System.Drawing.Size(10, 27);
+            this.txt_rol.TabIndex = 63;
+            this.txt_rol.Tag = "id_rol_pk";
+            // 
+            // txt_tipo
+            // 
+            this.txt_tipo.Location = new System.Drawing.Point(776, 308);
+            this.txt_tipo.Name = "txt_tipo";
+            this.txt_tipo.Size = new System.Drawing.Size(10, 27);
+            this.txt_tipo.TabIndex = 62;
+            this.txt_tipo.Tag = "id_tipo_pk";
+            // 
+            // txt_so
+            // 
+            this.txt_so.Location = new System.Drawing.Point(481, 311);
+            this.txt_so.Name = "txt_so";
+            this.txt_so.Size = new System.Drawing.Size(16, 27);
+            this.txt_so.TabIndex = 61;
+            this.txt_so.Tag = "id_so_pk";
+            // 
+            // txt_id_hw
+            // 
+            this.txt_id_hw.Location = new System.Drawing.Point(582, 23);
+            this.txt_id_hw.Name = "txt_id_hw";
+            this.txt_id_hw.Size = new System.Drawing.Size(10, 27);
+            this.txt_id_hw.TabIndex = 60;
+            this.txt_id_hw.Tag = "id_infra_pk";
+            // 
+            // txt_prov_mant
+            // 
+            this.txt_prov_mant.Location = new System.Drawing.Point(449, 355);
+            this.txt_prov_mant.Name = "txt_prov_mant";
+            this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
+            this.txt_prov_mant.TabIndex = 45;
+            this.txt_prov_mant.Tag = "id_prov_mante_pk";
+            // 
+            // txt_infra
+            // 
+            this.txt_infra.Location = new System.Drawing.Point(331, 26);
+            this.txt_infra.Name = "txt_infra";
+            this.txt_infra.Size = new System.Drawing.Size(245, 27);
+            this.txt_infra.TabIndex = 58;
+            this.txt_infra.Tag = "nombre_infra";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(249, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 21);
+            this.label12.TabIndex = 59;
+            this.label12.Text = "Nombre";
+            // 
+            // txt_modelo
+            // 
+            this.txt_modelo.Location = new System.Drawing.Point(778, 256);
+            this.txt_modelo.Name = "txt_modelo";
+            this.txt_modelo.Size = new System.Drawing.Size(8, 27);
+            this.txt_modelo.TabIndex = 44;
+            this.txt_modelo.Tag = "id_modelo_pk";
+            // 
+            // txt_ubicacion
+            // 
+            this.txt_ubicacion.Location = new System.Drawing.Point(778, 452);
+            this.txt_ubicacion.Name = "txt_ubicacion";
+            this.txt_ubicacion.Size = new System.Drawing.Size(15, 27);
+            this.txt_ubicacion.TabIndex = 43;
+            this.txt_ubicacion.Tag = "id_ubicacion_pk";
+            // 
+            // txt_marca
+            // 
+            this.txt_marca.Location = new System.Drawing.Point(370, 261);
+            this.txt_marca.Name = "txt_marca";
+            this.txt_marca.Size = new System.Drawing.Size(16, 27);
+            this.txt_marca.TabIndex = 42;
+            this.txt_marca.Tag = "id_marca_pk";
+            // 
+            // txt_mant
+            // 
+            this.txt_mant.Location = new System.Drawing.Point(510, 498);
+            this.txt_mant.Name = "txt_mant";
+            this.txt_mant.Size = new System.Drawing.Size(8, 27);
+            this.txt_mant.TabIndex = 41;
+            this.txt_mant.Tag = "mantenimiento";
+            // 
+            // cbo_mant
+            // 
+            this.cbo_mant.DisplayMember = "mant_real_por";
+            this.cbo_mant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_mant.FormattingEnabled = true;
+            this.cbo_mant.Items.AddRange(new object[] {
+            "Proveedor Externo",
+            "No necesita mantenimiento",
+            "Si"});
+            this.cbo_mant.Location = new System.Drawing.Point(257, 498);
+            this.cbo_mant.Name = "cbo_mant";
+            this.cbo_mant.Size = new System.Drawing.Size(247, 29);
+            this.cbo_mant.TabIndex = 40;
+            this.cbo_mant.ValueMember = "mant_real_por";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 506);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(243, 21);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "Mantenimiento Realizado Por:";
             // 
             // label10
             // 
@@ -305,9 +475,9 @@
             // 
             this.cbo_so.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_so.FormattingEnabled = true;
-            this.cbo_so.Location = new System.Drawing.Point(174, 308);
+            this.cbo_so.Location = new System.Drawing.Point(173, 308);
             this.cbo_so.Name = "cbo_so";
-            this.cbo_so.Size = new System.Drawing.Size(190, 29);
+            this.cbo_so.Size = new System.Drawing.Size(302, 29);
             this.cbo_so.TabIndex = 2;
             // 
             // cbo_marca
@@ -436,6 +606,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(65, 69);
             this.btn_actualizar.TabIndex = 6;
             this.btn_actualizar.UseVisualStyleBackColor = true;
+            this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_cancelar
             // 
@@ -453,176 +624,6 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // txt_mant
-            // 
-            this.txt_mant.Location = new System.Drawing.Point(510, 498);
-            this.txt_mant.Name = "txt_mant";
-            this.txt_mant.Size = new System.Drawing.Size(8, 27);
-            this.txt_mant.TabIndex = 41;
-            this.txt_mant.Tag = "mantenimiento";
-            // 
-            // cbo_mant
-            // 
-            this.cbo_mant.DisplayMember = "mant_real_por";
-            this.cbo_mant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_mant.FormattingEnabled = true;
-            this.cbo_mant.Items.AddRange(new object[] {
-            "Proveedor Externo",
-            "No necesita mantenimiento",
-            "Si"});
-            this.cbo_mant.Location = new System.Drawing.Point(257, 498);
-            this.cbo_mant.Name = "cbo_mant";
-            this.cbo_mant.Size = new System.Drawing.Size(247, 29);
-            this.cbo_mant.TabIndex = 40;
-            this.cbo_mant.ValueMember = "mant_real_por";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 506);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(243, 21);
-            this.label11.TabIndex = 39;
-            this.label11.Text = "Mantenimiento Realizado Por:";
-            // 
-            // txt_marca
-            // 
-            this.txt_marca.Location = new System.Drawing.Point(370, 261);
-            this.txt_marca.Name = "txt_marca";
-            this.txt_marca.Size = new System.Drawing.Size(16, 27);
-            this.txt_marca.TabIndex = 42;
-            this.txt_marca.Tag = "id_marca_pk";
-            // 
-            // txt_ubicacion
-            // 
-            this.txt_ubicacion.Location = new System.Drawing.Point(778, 452);
-            this.txt_ubicacion.Name = "txt_ubicacion";
-            this.txt_ubicacion.Size = new System.Drawing.Size(15, 27);
-            this.txt_ubicacion.TabIndex = 43;
-            this.txt_ubicacion.Tag = "id_ubicacion_pk";
-            // 
-            // txt_modelo
-            // 
-            this.txt_modelo.Location = new System.Drawing.Point(778, 256);
-            this.txt_modelo.Name = "txt_modelo";
-            this.txt_modelo.Size = new System.Drawing.Size(8, 27);
-            this.txt_modelo.TabIndex = 44;
-            this.txt_modelo.Tag = "id_modelo_pk";
-            // 
-            // txt_prov_mant
-            // 
-            this.txt_prov_mant.Location = new System.Drawing.Point(449, 355);
-            this.txt_prov_mant.Name = "txt_prov_mant";
-            this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
-            this.txt_prov_mant.TabIndex = 45;
-            this.txt_prov_mant.Tag = "id_prov_mante_pk";
-            // 
-            // txt_id_hw
-            // 
-            this.txt_id_hw.Location = new System.Drawing.Point(582, 23);
-            this.txt_id_hw.Name = "txt_id_hw";
-            this.txt_id_hw.Size = new System.Drawing.Size(10, 27);
-            this.txt_id_hw.TabIndex = 60;
-            this.txt_id_hw.Tag = "id_infra_pk";
-            // 
-            // txt_infra
-            // 
-            this.txt_infra.Location = new System.Drawing.Point(331, 26);
-            this.txt_infra.Name = "txt_infra";
-            this.txt_infra.Size = new System.Drawing.Size(245, 27);
-            this.txt_infra.TabIndex = 58;
-            this.txt_infra.Tag = "nombre_infra";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(249, 26);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 21);
-            this.label12.TabIndex = 59;
-            this.label12.Text = "Nombre";
-            // 
-            // txt_so
-            // 
-            this.txt_so.Location = new System.Drawing.Point(370, 308);
-            this.txt_so.Name = "txt_so";
-            this.txt_so.Size = new System.Drawing.Size(16, 27);
-            this.txt_so.TabIndex = 61;
-            this.txt_so.Tag = "id_so_pk";
-            // 
-            // txt_tipo
-            // 
-            this.txt_tipo.Location = new System.Drawing.Point(776, 308);
-            this.txt_tipo.Name = "txt_tipo";
-            this.txt_tipo.Size = new System.Drawing.Size(10, 27);
-            this.txt_tipo.TabIndex = 62;
-            this.txt_tipo.Tag = "id_tipo_pk";
-            // 
-            // txt_rol
-            // 
-            this.txt_rol.Location = new System.Drawing.Point(778, 357);
-            this.txt_rol.Name = "txt_rol";
-            this.txt_rol.Size = new System.Drawing.Size(10, 27);
-            this.txt_rol.TabIndex = 63;
-            this.txt_rol.Tag = "id_rol_pk";
-            // 
-            // txt_gabinete
-            // 
-            this.txt_gabinete.Location = new System.Drawing.Point(365, 403);
-            this.txt_gabinete.Name = "txt_gabinete";
-            this.txt_gabinete.Size = new System.Drawing.Size(8, 27);
-            this.txt_gabinete.TabIndex = 64;
-            this.txt_gabinete.Tag = "id_gabinete_pk";
-            // 
-            // txt_dominio
-            // 
-            this.txt_dominio.Location = new System.Drawing.Point(365, 452);
-            this.txt_dominio.Name = "txt_dominio";
-            this.txt_dominio.Size = new System.Drawing.Size(8, 27);
-            this.txt_dominio.TabIndex = 65;
-            this.txt_dominio.Tag = "id_dominio_pk";
-            // 
-            // txt_clus
-            // 
-            this.txt_clus.Location = new System.Drawing.Point(778, 403);
-            this.txt_clus.Name = "txt_clus";
-            this.txt_clus.Size = new System.Drawing.Size(10, 27);
-            this.txt_clus.TabIndex = 66;
-            this.txt_clus.Tag = "id_cluster_pk";
-            // 
-            // txt_descr
-            // 
-            this.txt_descr.Location = new System.Drawing.Point(762, 33);
-            this.txt_descr.Name = "txt_descr";
-            this.txt_descr.Size = new System.Drawing.Size(10, 27);
-            this.txt_descr.TabIndex = 69;
-            this.txt_descr.Tag = "descripcion_det";
-            // 
-            // txt_dato_hw
-            // 
-            this.txt_dato_hw.Location = new System.Drawing.Point(778, 33);
-            this.txt_dato_hw.Name = "txt_dato_hw";
-            this.txt_dato_hw.Size = new System.Drawing.Size(10, 27);
-            this.txt_dato_hw.TabIndex = 68;
-            this.txt_dato_hw.Tag = "id_dato_hw_pk";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(792, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(8, 27);
-            this.textBox1.TabIndex = 67;
-            this.textBox1.Tag = "id_infra_pk";
-            this.textBox1.Text = "1";
-            // 
-            // txt_clasifi
-            // 
-            this.txt_clasifi.Location = new System.Drawing.Point(17, 29);
-            this.txt_clasifi.Name = "txt_clasifi";
-            this.txt_clasifi.Size = new System.Drawing.Size(8, 27);
-            this.txt_clasifi.TabIndex = 70;
-            this.txt_clasifi.Tag = "id_clasi_inv_pk";
-            // 
             // id_dato
             // 
             this.id_dato.HeaderText = "ID_DATO_PK";
@@ -633,6 +634,7 @@
             // 
             this.datos_Es.HeaderText = "DATOS ESPECIFICOS";
             this.datos_Es.Name = "datos_Es";
+            this.datos_Es.ReadOnly = true;
             this.datos_Es.Width = 296;
             // 
             // descr

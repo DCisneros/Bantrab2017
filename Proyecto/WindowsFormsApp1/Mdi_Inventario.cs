@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
 
         Datos_hardware dt_hw;
+        vlan_grid vl;
         tipo_equipo tp_eq;
         Marca mark;
         Modelo mol;
@@ -30,6 +31,7 @@ namespace WindowsFormsApp1
         Plataforma_TI_grid pl;
         Sistema_Operativo so;
         Dominio dom;
+        Seguridad seg;
 
         public Mdi_Inventario()
         {
@@ -321,5 +323,38 @@ namespace WindowsFormsApp1
         {
             dom = null;
         }
+
+        private void seguridadInformaticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (seg == null)
+            {
+                seg = new Seguridad();
+                seg.MdiParent = this;
+                seg.FormClosed += new FormClosedEventHandler(seg_FormClosed);
+                seg.Show();
+            }
+        }
+
+        void seg_FormClosed(object sender, EventArgs e)
+        {
+            seg = null;
+        }
+
+        private void vlanToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (vl == null)
+            {
+                vl = new vlan_grid();
+                vl.MdiParent = this;
+                vl.FormClosed += new FormClosedEventHandler(vl_FormClosed);
+                vl.Show();
+            }
+        }
+
+        void vl_FormClosed(object sender, EventArgs e)
+        {
+            vl = null;
+        }
+
     }
 }

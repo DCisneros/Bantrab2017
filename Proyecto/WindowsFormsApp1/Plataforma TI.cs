@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class Plataforma_TI : Form
     {
-        public Plataforma_TI(DataGridView dt, string id_infra, string nombre_infra, string mante, string id_marca, string id_modelo, string id_so, string id_rol, string id_dominio, string id_tipo, string id_gab, string id_ubi, string id_prov_manm, Boolean Editar1, int mod)
+        public Plataforma_TI(DataGridView dt, string id_infra, string nombre_infra, string mante, string id_marca, string id_modelo, string id_so, string id_rol, string id_dominio, string id_tipo, string id_gab, string id_ubi, string id_prov_manm, string id_cluster, Boolean Editar1, int mod)
         { 
             InitializeComponent();
             data = dt;
@@ -32,6 +32,8 @@ namespace WindowsFormsApp1
             dominio = id_dominio;
             prov_man = id_prov_manm;
             modi = mod;
+            clus = id_cluster;
+            manteni = mante;
 
 
         }
@@ -45,8 +47,66 @@ namespace WindowsFormsApp1
         string tipo;
         string dominio;
         string prov_man;
+        string clus;
+        string manteni;
         int modi = 0;
-            
+
+        public void para_modificar()
+        {
+            try
+            {
+
+                int cont1 = 0;
+                //dataGridView1.Columns[1].Visible = false;
+                int id_dato = 0;
+                string dato;
+                string cadena;
+                OdbcConnection Conexion2;
+                OdbcCommand Query2 = new OdbcCommand();
+                OdbcDataReader consultar2;
+
+                Conexion2 = Conexionmysql.ObtenerConexion();
+
+                Query2.CommandText = "SELECT DISTINCT DG.id_detalle_hw_pk, DT.nombre_dato, DG.descripcion_det FROM dato_general DT, detalle_general DG, gestion_redes GR WHERE DT.id_clasi_inv_pk = '1' AND DG.id_infra_pk = " + txt_id_hw.Text + " AND DG.id_dato_hw_pk = DT.id_dato_hw_pk AND DT.estado <> 'INACTIVO' ;";
+                Query2.Connection = Conexion2;
+
+                consultar2 = Query2.ExecuteReader();
+                while (consultar2.Read())
+                {
+
+                    dataGridView1.Rows.Add(1);
+                    if (cont1 == 0)
+                    {
+
+                        id_dato = consultar2.GetInt32(0);
+                        dato = consultar2.GetString(1);
+                        cadena = consultar2.GetString(2);
+                        dataGridView1.Rows[0].Cells[0].Value = id_dato;
+                        dataGridView1.Rows[0].Cells[1].Value = dato;
+                        dataGridView1.Rows[0].Cells[2].Value = cadena;
+                        // MessageBox.Show(Convert.ToString(id));
+                    }
+                    else
+                    {
+                        id_dato = consultar2.GetInt32(0);
+                        dato = consultar2.GetString(1);
+                        cadena = consultar2.GetString(2);
+                        dataGridView1.Rows[cont1].Cells[0].Value = id_dato;
+                        dataGridView1.Rows[cont1].Cells[1].Value = dato;
+                        dataGridView1.Rows[cont1].Cells[2].Value = cadena;
+
+                    }
+                    cont1++;
+                }
+            }
+            catch
+            {
+
+            }
+
+            Conexionmysql.Desconectar();
+
+        }
 
         FuncionesNavegador.CapaNegocio fn = new FuncionesNavegador.CapaNegocio();
         Boolean Editar = false;
@@ -56,6 +116,9 @@ namespace WindowsFormsApp1
         private void Plataforma_TI_Load(object sender, EventArgs e)
         {
             txt_clasifi.Text = "1";
+            fn.InhabilitarComponentes(groupBox1);
+            dataGridView1.Enabled = false;
+            
             llenarmarca();
             llenarmodelo();
             llenardom();
@@ -67,7 +130,14 @@ namespace WindowsFormsApp1
             llenargabinete();
             llenartipo();
             cbo_mant.SelectedIndex = 0;
-            llenardatos();
+
+            if (modi == 0)
+            {
+                llenardatos();
+            } else
+            {
+                para_modificar();
+            }
 
             cbo_marca.SelectedValue = Convert.ToInt32(marca);
             cbo_modelo.SelectedValue = Convert.ToInt32(modelo);
@@ -77,6 +147,9 @@ namespace WindowsFormsApp1
             cbo_rol.SelectedValue = Convert.ToInt32(rol);
             cbo_tipo.SelectedValue = Convert.ToInt32(tipo);
             cbo_ubi.SelectedValue = Convert.ToInt32(ubicacion);
+            cbo_dom.SelectedValue = Convert.ToInt32(dominio);
+            cbo_clu.SelectedValue = Convert.ToInt32(clus);
+            cbo_mant.Text = manteni;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -88,6 +161,7 @@ namespace WindowsFormsApp1
                 fn.ActivarControles(groupBox1);
                 fn.LimpiarComponentes(groupBox1);
                 //dataGridView1.Rows.Clear();
+
                 dataGridView1.Enabled = true;
                 llenardatos();
 
@@ -178,7 +252,7 @@ namespace WindowsFormsApp1
                 //se inicia un DataSet
                 DataSet ds = new DataSet();
                 //se indica la consulta en sql
-                String Query = "select id_ubicacion_pk, nombre from ubicacion where estado <> 'INACTIVO' ";
+                String Query = "select id_ubicacion_pk, nombre, detalle from ubicacion where estado <> 'INACTIVO' ";
                 OdbcDataAdapter dad = new OdbcDataAdapter(Query, Conexionmysql.ObtenerConexion());
                 //se indica con quu tabla se llena
                 dad.Fill(ds, "ubicacion");
@@ -186,7 +260,21 @@ namespace WindowsFormsApp1
                 //indicamos el valor de los miembros
                 cbo_ubi.ValueMember = ("id_ubicacion_pk");
                 //se indica el valor a desplegar en el combobox
-                cbo_ubi.DisplayMember = ("nombre");
+                DataTable dt = ds.Tables[0];
+                dt.Columns.Add("NewColumn", typeof(string));
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["detalle"].ToString() == "N/A")
+                    {
+                        dr["nombre"] = dr["nombre"].ToString();
+                    }
+                    else
+                    {
+                        dr["nombre"] = dr["nombre"].ToString() + " Nvl. " + dr["detalle"].ToString();
+                    }
+                }
+                cbo_ubi.DataSource = dt;
+                cbo_ubi.DisplayMember = "nombre";
                 Conexionmysql.Desconectar();
             }
             catch (Exception ex)
@@ -264,7 +352,22 @@ namespace WindowsFormsApp1
                 //indicamos el valor de los miembros
                 cbo_so.ValueMember = ("id_so_pk");
                 //se indica el valor a desplegar en el combobox
-                cbo_so.DisplayMember = ("nombre_so");
+
+                DataTable dt = ds.Tables[0];
+                dt.Columns.Add("NewColumn", typeof(string));
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["version_so"].ToString() == "N/A")
+                    {
+                        dr["nombre_so"] = dr["nombre_so"].ToString();
+                    } else
+                    {
+                        dr["nombre_so"] = dr["nombre_so"].ToString() + "Ver. " + dr["version_so"].ToString();
+                    }
+                }
+                cbo_so.DataSource = dt;
+                cbo_so.DisplayMember = "nombre_so";
+
                 Conexionmysql.Desconectar();
             }
             catch (Exception ex)
@@ -597,8 +700,8 @@ namespace WindowsFormsApp1
             try
             {
 
-                String atributo2 = "nombre_infra";
-                String codigo2 = txt_infra.Text;
+                String atributo2 = "id_infra_pk";
+                String codigo2 = txt_id_hw.Text;
                 var resultado = MessageBox.Show("DESEA BORRAR EL REGISTRO SELECCIONADO", "CONFIRME SU ACCION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
@@ -616,6 +719,13 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("No se ha seleccionado ningun registro a eliminar", "Favor Verificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_actualizar_Click(object sender, EventArgs e)
+        {
+            string tabla = "infraestructura";
+            fn.ActualizarGrid(data, "SELECT DISTINCT INF.id_infra_pk, INF.nombre_infra, INF.mantenimiento, M.id_marca_pk, M.nombre_marca, MD.id_modelo_pk, MD.nombre_modelo, SO.id_so_pk, SO.nombre_so, SO.version_so, RL.id_rol_pk, RL.nombre_rol, DOM.id_dominio_pk, DOM.nombre_dominio, TP.id_tipo_pk, TP.nombre_tipo, GA.id_gabinete_pk, GA.nombre_gabinete, UB.id_ubicacion_pk, UB.nombre, UB.detalle, PM.id_prov_mante_pk, PM.nombre_prov_mant, CL.id_cluster_pk, CL.nombre_cluster  FROM infraestructura INF, marca M, modelo MD, sistema_operativo SO, rol RL, dominio DOM, ubicacion UB, tipo TP, cluster CL, gabinete GA, proveedor_mantenimiento PM WHERE INF.id_marca_pk = M.id_marca_pk AND INF.id_modelo_pk = MD.id_modelo_pk AND INF.id_so_pk = SO.id_so_pk AND INF.id_tipo_pk = TP.id_tipo_pk AND INF.id_prov_mante_pk = PM.id_prov_mante_pk AND INF.id_gabinete_pk = GA.id_gabinete_pk AND INF.id_dominio_pk = DOM.id_dominio_pk AND INF.id_rol_pk = RL.id_rol_pk AND INF.id_cluster_pk = CL.id_cluster_pk AND INF.id_ubicacion_pk = UB.id_ubicacion_pk AND INF.id_cluster_pk = CL.id_cluster_pk AND INF.estado <> 'INACTIVO' and INF.id_clasi_inv_pk = '1'", tabla);
+
         }
     }
 }

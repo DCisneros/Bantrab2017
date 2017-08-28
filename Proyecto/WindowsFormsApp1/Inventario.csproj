@@ -181,6 +181,12 @@
     <Compile Include="Seguridad Informatica.Designer.cs">
       <DependentUpon>Seguridad Informatica.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad.Designer.cs">
+      <DependentUpon>Seguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema Operativo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad Informatica.resx">
       <DependentUpon>Seguridad Informatica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad.resx">
+      <DependentUpon>Seguridad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema Operativo.resx">
       <DependentUpon>Sistema Operativo.cs</DependentUpon>
