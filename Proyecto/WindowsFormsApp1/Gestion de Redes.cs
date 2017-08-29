@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using FuncionesNavegador;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace WindowsFormsApp1
 {
     public partial class Gestion_de_Redes : Form
     {
-        public Gestion_de_Redes(DataGridView dt, string id_gestion, string nombre_gest, string mant_real, string fecha, string id_marca, string id_modelo, string id_ubicacion, string prove_mant, string tipom, Boolean Editar1, int mod)
+        public Gestion_de_Redes(DataGridView dt, string id_gestion, string nombre_gest, string mant_real, string fecha, string fin_gar, string id_marca, string id_modelo, string id_ubicacion, string prove_mant, string tipom, Boolean Editar1, int mod)
         {
-           
+
             InitializeComponent();
             txt_id_hw.Text = id_gestion;
             txt_host.Text = nombre_gest;
@@ -29,6 +30,7 @@ namespace WindowsFormsApp1
             ubicacion = id_ubicacion;
             modi = mod;
             data = dt;
+            fecha_fin = fin_gar;
 
 
         }
@@ -40,7 +42,7 @@ namespace WindowsFormsApp1
         string prov_man;
         int modi = 0;
         string tipoe;
-
+        string fecha_fin;
         public void para_modificar()
         {
             try
@@ -292,6 +294,8 @@ namespace WindowsFormsApp1
             cbo_fecha.SelectedIndex = 0;
             cbo_mant.SelectedIndex = 0;
             dateTimePicker1.Visible = false;
+            lbl_fin_gar.Visible = false;
+            dateTimePicker2.Visible = false;
             txt_host.Enabled = false;
             fn.InhabilitarComponentes(groupBox1);
             
@@ -325,6 +329,7 @@ namespace WindowsFormsApp1
             {
                 cbo_fecha.Text = "Aplica";
                 dateTimePicker1.Text = fecha_in;
+                dateTimePicker2.Text = fecha_fin;
             }
 
             cbo_modelo.SelectedValue = Convert.ToInt32(modelo);
@@ -388,10 +393,17 @@ namespace WindowsFormsApp1
             {
                 dateTimePicker1.Visible = true;
                 dateTimePicker1.Enabled = true;
+                lbl_fin_gar.Visible= true;
+                dateTimePicker2.Visible = true;
+                dateTimePicker2.Enabled = true;
+
             } else
             {
                 dateTimePicker1.Visible = false;
                 dateTimePicker1.Enabled = false;
+                lbl_fin_gar.Visible = false;
+                dateTimePicker2.Visible = false;
+                dateTimePicker2.Enabled = false;
             }
         }
 
@@ -494,14 +506,16 @@ namespace WindowsFormsApp1
                 if (cbo_fecha.Text == "Aplica")
                 {
                     txt_fecha.Text = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                    txt_fin_gara.Text = dateTimePicker2.Value.ToString("yyyy-MM-dd");
                 } else
                 {
                     txt_fecha.Text = cbo_fecha.Text;
+                    txt_fin_gara.Text = cbo_fecha.Text;
                 }
 
                 txt_clasifi.Text ="3";
 
-                TextBox[] textbox = { txt_host, txt_fecha, txt_mant, txt_marca, txt_modelo, txt_ubicacion, txt_prov_mant, txt_equipo, txt_clasifi};
+                TextBox[] textbox = { txt_host, txt_fecha, txt_mant, txt_marca, txt_modelo, txt_ubicacion, txt_prov_mant, txt_equipo, txt_clasifi, txt_fin_gara};
                 DataTable datos = fn.construirDataTable(textbox);
                 if (datos.Rows.Count == 0)
                 {
@@ -588,12 +602,14 @@ namespace WindowsFormsApp1
         public void actualizar()
         {
             string tabla = "gestion_redes";
-            fn.ActualizarGrid(data, "SELECT DISTINCT GR.id_gestion_redes_pk, GR.nombre_gest, GR.mant_real_por, GR.fecha_inicio_garantia, M.id_marca_pk, M.nombre_marca, MD.id_modelo_pk, MD.nombre_modelo, U.id_ubicacion_pk, U.nombre, U.detalle, PM.id_prov_mante_pk, PM.nombre_prov_mant, TE.id_tipo_equipo_pk, TE.nombre_tipo FROM gestion_redes GR, detalle_general DT, marca M, modelo MD, ubicacion U, proveedor_mantenimiento PM, tipo_equipo TE WHERE GR.id_marca_pk = M.id_marca_pk AND MD.id_modelo_pk = GR.id_modelo_pk AND U.id_ubicacion_pk = GR.id_ubicacion_pk AND PM.id_prov_mante_pk = GR.id_prov_mante_pk AND TE.id_tipo_equipo_pk = GR.id_tipo_equipo_pk AND GR.estado <> 'INACTIVO'", tabla);
+            fn.ActualizarGrid(data, "SELECT DISTINCT GR.id_gestion_redes_pk, GR.nombre_gest, GR.mant_real_por, GR.fecha_inicio_garantia,GR.fecha_fin_garantia, M.id_marca_pk, M.nombre_marca, MD.id_modelo_pk, MD.nombre_modelo, U.id_ubicacion_pk, U.nombre, U.detalle, PM.id_prov_mante_pk, PM.nombre_prov_mant, TE.id_tipo_equipo_pk, TE.nombre_tipo FROM gestion_redes GR, detalle_general DT, marca M, modelo MD, ubicacion U, proveedor_mantenimiento PM, tipo_equipo TE WHERE GR.id_marca_pk = M.id_marca_pk AND MD.id_modelo_pk = GR.id_modelo_pk AND U.id_ubicacion_pk = GR.id_ubicacion_pk AND PM.id_prov_mante_pk = GR.id_prov_mante_pk AND TE.id_tipo_equipo_pk = GR.id_tipo_equipo_pk AND GR.estado <> 'INACTIVO'", tabla);
         }
 
         private void btn_actualizar_Click(object sender, EventArgs e)
         {
             actualizar();
         }
+
+       
     }
 }

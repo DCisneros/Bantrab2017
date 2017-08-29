@@ -60,6 +60,9 @@
             this.cbo_prov_man = new System.Windows.Forms.ComboBox();
             this.cbo_marca = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_lbl = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -68,9 +71,9 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_actualizar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            this.id_dato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datosq = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_fin_gar = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txt_fin_gara = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,6 +81,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_fin_gara);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.lbl_fin_gar);
             this.groupBox1.Controls.Add(this.txt_clasifi);
             this.groupBox1.Controls.Add(this.txt_mant);
             this.groupBox1.Controls.Add(this.txt_descr);
@@ -111,7 +117,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 151);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(876, 524);
+            this.groupBox1.Size = new System.Drawing.Size(876, 530);
             this.groupBox1.TabIndex = 54;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
@@ -185,7 +191,7 @@
             // 
             // txt_fecha
             // 
-            this.txt_fecha.Location = new System.Drawing.Point(778, 490);
+            this.txt_fecha.Location = new System.Drawing.Point(733, 460);
             this.txt_fecha.Name = "txt_fecha";
             this.txt_fecha.Size = new System.Drawing.Size(10, 27);
             this.txt_fecha.TabIndex = 34;
@@ -201,7 +207,7 @@
             // 
             // txt_prov_mant
             // 
-            this.txt_prov_mant.Location = new System.Drawing.Point(479, 429);
+            this.txt_prov_mant.Location = new System.Drawing.Point(461, 412);
             this.txt_prov_mant.Name = "txt_prov_mant";
             this.txt_prov_mant.Size = new System.Drawing.Size(10, 27);
             this.txt_prov_mant.TabIndex = 32;
@@ -264,7 +270,7 @@
             "Aplica",
             "N/A",
             "Sin garantia"});
-            this.cbo_fecha.Location = new System.Drawing.Point(299, 485);
+            this.cbo_fecha.Location = new System.Drawing.Point(268, 456);
             this.cbo_fecha.Name = "cbo_fecha";
             this.cbo_fecha.Size = new System.Drawing.Size(121, 29);
             this.cbo_fecha.TabIndex = 25;
@@ -273,7 +279,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 493);
+            this.label3.Location = new System.Drawing.Point(41, 464);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 21);
             this.label3.TabIndex = 22;
@@ -281,7 +287,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(444, 487);
+            this.dateTimePicker1.Location = new System.Drawing.Point(399, 458);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(328, 27);
             this.dateTimePicker1.TabIndex = 21;
@@ -298,7 +304,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 435);
+            this.label5.Location = new System.Drawing.Point(19, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(240, 21);
             this.label5.TabIndex = 15;
@@ -307,7 +313,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(507, 435);
+            this.label4.Location = new System.Drawing.Point(489, 418);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 21);
             this.label4.TabIndex = 14;
@@ -344,7 +350,7 @@
             // 
             this.cbo_tipo_eq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_tipo_eq.FormattingEnabled = true;
-            this.cbo_tipo_eq.Location = new System.Drawing.Point(638, 427);
+            this.cbo_tipo_eq.Location = new System.Drawing.Point(620, 410);
             this.cbo_tipo_eq.Name = "cbo_tipo_eq";
             this.cbo_tipo_eq.Size = new System.Drawing.Size(190, 29);
             this.cbo_tipo_eq.TabIndex = 5;
@@ -362,7 +368,7 @@
             // 
             this.cbo_prov_man.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_prov_man.FormattingEnabled = true;
-            this.cbo_prov_man.Location = new System.Drawing.Point(283, 427);
+            this.cbo_prov_man.Location = new System.Drawing.Point(265, 410);
             this.cbo_prov_man.Name = "cbo_prov_man";
             this.cbo_prov_man.Size = new System.Drawing.Size(190, 29);
             this.cbo_prov_man.TabIndex = 3;
@@ -388,6 +394,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(841, 213);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // id_dato
+            // 
+            this.id_dato.HeaderText = "ID_DATO";
+            this.id_dato.Name = "id_dato";
+            this.id_dato.Visible = false;
+            // 
+            // datosq
+            // 
+            this.datosq.HeaderText = "DATOS ESPECIFICOS";
+            this.datosq.Name = "datosq";
+            this.datosq.ReadOnly = true;
+            this.datosq.Width = 300;
+            // 
+            // descr
+            // 
+            this.descr.HeaderText = "DESCRIPCION";
+            this.descr.Name = "descr";
+            this.descr.Width = 498;
             // 
             // txt_lbl
             // 
@@ -512,24 +537,29 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
-            // id_dato
+            // lbl_fin_gar
             // 
-            this.id_dato.HeaderText = "ID_DATO";
-            this.id_dato.Name = "id_dato";
-            this.id_dato.Visible = false;
+            this.lbl_fin_gar.AutoSize = true;
+            this.lbl_fin_gar.Location = new System.Drawing.Point(41, 500);
+            this.lbl_fin_gar.Name = "lbl_fin_gar";
+            this.lbl_fin_gar.Size = new System.Drawing.Size(204, 21);
+            this.lbl_fin_gar.TabIndex = 40;
+            this.lbl_fin_gar.Text = "Fecha de fin de garantia";
             // 
-            // datosq
+            // dateTimePicker2
             // 
-            this.datosq.HeaderText = "DATOS ESPECIFICOS";
-            this.datosq.Name = "datosq";
-            this.datosq.ReadOnly = true;
-            this.datosq.Width = 300;
+            this.dateTimePicker2.Location = new System.Drawing.Point(268, 495);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(320, 27);
+            this.dateTimePicker2.TabIndex = 41;
             // 
-            // descr
+            // txt_fin_gara
             // 
-            this.descr.HeaderText = "DESCRIPCION";
-            this.descr.Name = "descr";
-            this.descr.Width = 498;
+            this.txt_fin_gara.Location = new System.Drawing.Point(594, 497);
+            this.txt_fin_gara.Name = "txt_fin_gara";
+            this.txt_fin_gara.Size = new System.Drawing.Size(8, 27);
+            this.txt_fin_gara.TabIndex = 42;
+            this.txt_fin_gara.Tag = "fecha_fin_garantia";
             // 
             // Gestion_de_Redes
             // 
@@ -537,7 +567,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(893, 677);
+            this.ClientSize = new System.Drawing.Size(893, 681);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txt_lbl);
             this.Controls.Add(this.groupBox2);
@@ -599,5 +629,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_dato;
         private System.Windows.Forms.DataGridViewTextBoxColumn datosq;
         private System.Windows.Forms.DataGridViewTextBoxColumn descr;
+        private System.Windows.Forms.TextBox txt_fin_gara;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label lbl_fin_gar;
     }
 }

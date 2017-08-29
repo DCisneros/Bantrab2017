@@ -166,3 +166,5 @@ C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFo
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Plataforma_TI_grid.resources
 C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Seguridad.resources
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Reporte_Redes.resources
+C:\Users\Fredy_Cardona\Documents\Visual Studio 2017\Copia\COPIA GITHUB\WindowsFormsApp1\obj\Debug\Inventario.csproj.ResolveComReference.cache

@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
         Sistema_Operativo so;
         Dominio dom;
         Seguridad seg;
+        Reporte_Redes rep_gest;
 
         public Mdi_Inventario()
         {
@@ -356,5 +357,20 @@ namespace WindowsFormsApp1
             vl = null;
         }
 
+        private void reporteDeInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rep_gest == null)
+            {
+                rep_gest = new Reporte_Redes();
+                rep_gest.MdiParent = this;
+                rep_gest.FormClosed += new FormClosedEventHandler(rep_gest_FormClosed);
+                rep_gest.Show();
+            }
+        }
+
+        void rep_gest_FormClosed(object sender, EventArgs e)
+        {
+            rep_gest = null;
+        }
     }
 }

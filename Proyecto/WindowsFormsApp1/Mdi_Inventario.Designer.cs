@@ -46,14 +46,14 @@
             this.sistemaOperativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dominioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeRedesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plataformaTIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadInformaticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vlanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -209,12 +209,6 @@
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.procesosToolStripMenuItem.Text = "Procesos";
             // 
-            // importarToolStripMenuItem
-            // 
-            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(289, 24);
-            this.importarToolStripMenuItem.Text = "Importar";
-            // 
             // gestionDeRedesToolStripMenuItem
             // 
             this.gestionDeRedesToolStripMenuItem.Name = "gestionDeRedesToolStripMenuItem";
@@ -236,6 +230,19 @@
             this.seguridadInformaticaToolStripMenuItem.Text = "Seguridad Informatica";
             this.seguridadInformaticaToolStripMenuItem.Click += new System.EventHandler(this.seguridadInformaticaToolStripMenuItem_Click);
             // 
+            // vlanToolStripMenuItem
+            // 
+            this.vlanToolStripMenuItem.Name = "vlanToolStripMenuItem";
+            this.vlanToolStripMenuItem.Size = new System.Drawing.Size(289, 24);
+            this.vlanToolStripMenuItem.Text = "Vlan";
+            this.vlanToolStripMenuItem.Click += new System.EventHandler(this.vlanToolStripMenuItem_Click_1);
+            // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(289, 24);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,19 +256,13 @@
             this.reporteDeInventarioToolStripMenuItem.Name = "reporteDeInventarioToolStripMenuItem";
             this.reporteDeInventarioToolStripMenuItem.Size = new System.Drawing.Size(241, 24);
             this.reporteDeInventarioToolStripMenuItem.Text = "Reporte de Inventario";
+            this.reporteDeInventarioToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInventarioToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
-            // 
-            // vlanToolStripMenuItem
-            // 
-            this.vlanToolStripMenuItem.Name = "vlanToolStripMenuItem";
-            this.vlanToolStripMenuItem.Size = new System.Drawing.Size(289, 24);
-            this.vlanToolStripMenuItem.Text = "Vlan";
-            this.vlanToolStripMenuItem.Click += new System.EventHandler(this.vlanToolStripMenuItem_Click_1);
             // 
             // Mdi_Inventario
             // 
